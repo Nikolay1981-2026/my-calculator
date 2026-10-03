@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ипотечный калькулятор — рассчитайте платёж онлайн</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 480px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 24px;
+    color: #1a2b4a;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid #d0d8e8;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    transition: border 0.2s;
+  }
+  input:focus {
+    outline: none;
+    border-color: #3b6fe0;
+  }
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: #3b6fe0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover { background: #2d5bc7; }
+  .result {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f0f7ff;
+    border-radius: 10px;
+    display: none;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d0e2ff;
+    margin-top: 8px;
+    padding-top: 14px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #3b6fe0; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Ипотечный калькулятор</h1>
+  <p class="subtitle">Рассчитайте ежемесячный платёж онлайн</p>
+
+  <label for="amount">Сумма кредита (₽)</label>
+  <input type="number" id="amount" placeholder="Например: 3000000" value="3000000">
+
+  <label for="rate">Процентная ставка (% годовых)</label>
+  <input type="number" id="rate" placeholder="Например: 12" value="12" step="0.1">
+
+  <label for="years">Срок кредита (лет)</label>
+  <input type="number" id="years" placeholder="Например: 20" value="20">
+
+  <button onclick="calculate()">Рассчитать платёж</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Ежемесячный платёж:</span>
+      <span id="monthly">—</span>
+    </div>
+    <div class="result-row">
+      <span>Общая сумма выплат:</span>
+      <span id="total">—</span>
+    </div>
+    <div class="result-row">
+      <span>Переплата по процентам:</span>
+      <span id="overpay">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Итог:</span>
+      <span id="summary">—</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function calculate() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const rate = parseFloat(document.getElementById('rate').value);
+  const years = parseFloat(document.getElementById('years').value);
+
+  if (!amount || !rate || !years || amount <= 0 || rate <= 0 || years <= 0) {
+    alert('Пожалуйста, заполните все поля корректно');
+    return;
+  }
+
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  const monthlyPayment = amount * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+  const totalPayment = monthlyPayment * months;
+  const overpayment = totalPayment - amount;
+
+  const fmt = (n) => n.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽';
+
+  document.getElementById('monthly').textContent = fmt(monthlyPayment);
+  document.getElementById('total').textContent = fmt(totalPayment);
+  document.getElementById('overpay').textContent = fmt(overpayment);
+  document.getElementById('summary').textContent = fmt(monthlyPayment) + ' / мес';
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+</html>
