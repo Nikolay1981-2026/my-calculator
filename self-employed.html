@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Employed Mortgage Calculator — How Much Can You Borrow?</title> 
+  <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 560px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #e8f0ff;
+    color: #3b6fe0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  input {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: border 0.2s;
+  }
+  input:focus {
+    outline: none;
+    border-color: #3b6fe0;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #3b6fe0, #5b3be0);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59,111,224,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f7faff;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #e0e9ff;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d0e2ff;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #3b6fe0; }
+  .note {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">FOR SELF-EMPLOYED & FREELANCERS</span></div>
+  <h1>Self-Employed Mortgage Calculator</h1>
+  <p class="subtitle">Find out how much you can borrow using your 2-year average income — the way lenders actually calculate it.</p>
+
+  <label for="income1">Year 1 net income (after taxes) — USD</label>
+  <p class="hint">Use the adjusted gross income from your tax return</p>
+  <input type="number" id="income1" placeholder="e.g. 75000" value="75000">
+
+  <label for="income2">Year 2 net income (after taxes) — USD</label>
+  <p class="hint">Your most recent tax year</p>
+  <input type="number" id="income2" placeholder="e.g. 85000" value="85000">
+
+  <label for="down">Down payment — USD</label>
+  <input type="number" id="down" placeholder="e.g. 60000" value="60000">
+
+  <label for="rate">Interest rate — % per year</label>
+  <input type="number" id="rate" placeholder="e.g. 6.5" value="6.5" step="0.1">
+
+  <label for="years">Loan term — years</label>
+  <input type="number" id="years" placeholder="e.g. 30" value="30">
+
+  <button onclick="calculate()">Calculate My Borrowing Power</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Qualifying monthly income:</span>
+      <span id="qincome">—</span>
+    </div>
+    <div class="result-row">
+      <span>Max monthly payment:</span>
+      <span id="maxpay">—</span>
+    </div>
+    <div class="result-row total">
+      <span>You can borrow up to:</span>
+      <span id="borrow">—</span>
+    </div>
+  </div>
+
+  <p class="note">This is an estimate. Lenders may apply additional rules for self-employed borrowers.</p>
+</div>
+
+<script>
+function calculate() {
+  const inc1 = parseFloat(document.getElementById('income1').value);
+  const inc2 = parseFloat(document.getElementById('income2').value);
+  const down = parseFloat(document.getElementById('down').value);
+  const rate = parseFloat(document.getElementById('rate').value);
+  const years = parseFloat(document.getElementById('years').value);
+
+  if (!inc1 || !inc2 || !rate || !years || inc1 <= 0 || inc2 <= 0 || rate <= 0 || years <= 0) {
+    alert('Please fill in all fields correctly');
+    return;
+  }
+
+  // Логика для самозанятых: банки берут средний доход за 2 года
+  const avgMonthlyIncome = ((inc1 + inc2) / 2) / 12;
+
+  // Банки обычно разрешают платить по ипотеке до 43% от дохода (DTI ratio)
+  const maxMonthlyPayment = avgMonthlyIncome * 0.43;
+
+  // Считаем, сколько можно занять под этот платёж
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  const maxLoan = maxMonthlyPayment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
+  const totalBorrow = maxLoan + down;
+
+  const fmt = (n) => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+  document.getElementById('qincome').textContent = fmt(avgMonthlyIncome) + ' / mo';
+  document.getElementById('maxpay').textContent = fmt(maxMonthlyPayment) + ' / mo';
+  document.getElementById('borrow').textContent = fmt(totalBorrow);
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+</html>
