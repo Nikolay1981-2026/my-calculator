@@ -1,4 +1,164 @@
-<input type="number" id="income" placeholder="e.g. 60000" value="60000">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thin Credit Mortgage Calculator — What Are Your Options?</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  select, input {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: border 0.2s;
+  }
+  select:focus, input:focus {
+    outline: none;
+    border-color: #2e7d32;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #2e7d32, #134e5e);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46,125,50,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f7faff;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #e0e9ff;
+  }
+  .result.show { display: block; }
+  .result h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0e9ff;
+  }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d0e2ff;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #2e7d32; }
+  .tip {
+    background: #e8f5e9;
+    border-left: 4px solid #2e7d32;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #1b5e20;
+    line-height: 1.55;
+  }
+  .note {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">FOR BUYERS WITH LIMITED CREDIT</span></div>
+  <h1>Thin Credit Mortgage Calculator</h1>
+  <p class="subtitle">No credit history or past issues? You still have options. See what rate and loan type might be available to you.</p>
+
+  <label for="creditScore">Your credit score range</label>
+  <select id="creditScore">
+    <option value="760">Excellent — 760 or higher</option>
+    <option value="700">Good — 700 to 759</option>
+    <option value="660">Fair — 660 to 699</option>
+    <option value="620" selected>Poor — 620 to 659</option>
+    <option value="580">Bad — 580 to 619</option>
+    <option value="500">Very bad — below 580</option>
+    <option value="0">No credit history at all</option>
+  </select>
+  <input type="number" id="income" placeholder="e.g. 60000" value="60000">
 
   <label for="down">Down payment — USD</label>
   <p class="hint">A larger down payment helps offset a low score</p>
@@ -45,21 +205,20 @@ function calculate() {
     return;
   }
 
-  // Определяем тип кредита и ставку по скору
   let loanType, rate, tip;
 
   if (score === 0) {
     loanType = 'FHA Loan or Non-QM';
     rate = 7.5;
-    tip = '💡 No credit history is not the end. FHA loans allow non-traditional credit — like rent payments, utility bills, and phone bills. Ask your lender about "alternative credit."';
+    tip = 'No credit history is not the end. FHA loans allow non-traditional credit — like rent payments, utility bills, and phone bills. Ask your lender about alternative credit.';
   } else if (score >= 760) {
     loanType = 'Conventional Loan';
     rate = 6.0;
-    tip = '✅ Excellent credit. You qualify for the best rates. Consider getting quotes from at least 3 lenders — even 0.25% difference saves thousands over 30 years.';
+    tip = 'Excellent credit. You qualify for the best rates. Consider getting quotes from at least 3 lenders — even 0.25% difference saves thousands over 30 years.';
   } else if (score >= 700) {
     loanType = 'Conventional Loan';
     rate = 6.4;
-    tip = '👍 Good credit. You may qualify for conventional loans. Paying down debts to lower your DTI can get you an even better rate.';
+    tip = 'Good credit. You may qualify for conventional loans. Paying down debts to lower your DTI can get you an even better rate.';
   } else if (score >= 660) {
     loanType = 'Conventional or FHA';
     rate = 6.9;
@@ -67,22 +226,20 @@ function calculate() {
   } else if (score >= 620) {
     loanType = 'FHA Loan (recommended)';
     rate = 7.2;
-    tip = '⚠️ FHA loans are designed for you. They allow down payments as low as 3.5%. Work on raising your score to 660+ to save on interest.';
+    tip = 'FHA loans are designed for you. They allow down payments as low as 3.5%. Work on raising your score to 660+ to save on interest.';
   } else if (score >= 580) {
     loanType = 'FHA Loan';
     rate = 7.8;
-    tip = '⚠️ FHA allows scores from 580. Focus on paying every bill on time for 6–12 months — even a 20-point increase helps.';
+    tip = 'FHA allows scores from 580. Focus on paying every bill on time for 6-12 months — even a 20-point increase helps.';
   } else {
     loanType = 'Subprime / Hard Money';
     rate = 9.5;
-    tip = '⚠️ Very limited options. Consider a co-signer with good credit, or work on your score for 12 months before buying. Talk to a HUD-approved housing counselor — free help.';
+    tip = 'Very limited options. Consider a co-signer with good credit, or work on your score for 12 months before buying. Talk to a HUD-approved housing counselor — free help.';
   }
 
-  // Максимальный платёж — 43% от дохода в месяц
   const monthlyIncome = income / 12;
   const maxPayment = monthlyIncome * 0.43;
 
-  // Считаем, сколько можно занять
   const monthlyRate = rate / 100 / 12;
   const months = years * 12;
   const maxLoan = maxPayment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
@@ -93,10 +250,13 @@ function calculate() {
   document.getElementById('loanType').textContent = loanType;
   document.getElementById('rate').textContent = rate + '%';
   document.getElementById('homePrice').textContent = fmt(homePrice);
-  document.getElementById('payment').textContent = fmt(maxPayment) + ' / mo';document.getElementById('tip').textContent = tip;
+  document.getElementById('payment').textContent = fmt(maxPayment) + ' / mo';
+  document.getElementById('tip').textContent = tip;
   document.getElementById('result').classList.add('show');
 }
 </script>
 
 </body>
 </html>
+
+  <label for="income">Your annual income — USD</label>
