@@ -1,161 +1,142 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ипотечный калькулятор — рассчитайте платёж онлайн</title>
+<title>Mortgage & Home Cost Calculators — Free Tools for Home Buyers</title>
+<meta name="description" content="Free mortgage calculators for self-employed borrowers, hidden home costs, and buyers with thin credit. Know the real numbers before you buy.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    align-items: flex-start;
   }
   .container {
+    max-width: 720px;
+    width: 100%;
+  }
+  .header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    font-weight: 800;
+  }
+  .header p {
+    font-size: 17px;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    padding: 40px;
-    max-width: 480px;
-    width: 100%;
-  }
-  h1 {
-    font-size: 24px;
+    padding: 26px 28px;
+    text-decoration: none;
     color: #1a2b4a;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  label {
     display: block;
-    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-left: 6px solid #3b6fe0;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  }
+  .card h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
     color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: bold;
   }
-  input {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 16px;
-    border: 1px solid #d0d8e8;
-    border-radius: 8px;
-    margin-bottom: 18px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #3b6fe0;
-  }
-  button {
-    width: 100%;
-    padding: 14px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: #3b6fe0;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  button:hover { background: #2d5bc7; }
-  .result {
-    margin-top: 24px;
-    padding: 20px;
-    background: #f0f7ff;
-    border-radius: 10px;
-    display: none;
-  }
-  .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
+  .card p {
     font-size: 15px;
-    color: #1a2b4a;
+    color: #6b7a99;
+    line-height: 1.55;
+    margin-bottom: 12px;
   }
-  .result-row.total {
-    border-top: 2px solid #d0e2ff;
-    margin-top: 8px;
-    padding-top: 14px;
-    font-size: 18px;
+  .card .cta {
+    font-size: 14px;
     font-weight: bold;
+    color: #3b6fe0;
   }
-  .result-row.total span:last-child { color: #3b6fe0; }
+  .card.orange { border-left-color: #e65100; }
+  .card.orange .cta { color: #e65100; }
+  .card.green { border-left-color: #2e7d32; }
+  .card.green .cta { color: #2e7d32; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #e8f0ff;
+    color: #3b6fe0;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .badge.orange { background: #fff3e0; color: #e65100; }
+  .badge.green { background: #e8f5e9; color: #2e7d32; }
+  .footer {
+    text-align: center;
+    color: #fff;
+    opacity: 0.7;
+    font-size: 13px;
+    margin-top: 36px;
+    line-height: 1.6;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Ипотечный калькулятор</h1>
-  <p class="subtitle">Рассчитайте ежемесячный платёж онлайн</p>
-
-  <label for="amount">Сумма кредита (₽)</label>
-  <input type="number" id="amount" placeholder="Например: 3000000" value="3000000">
-
-  <label for="rate">Процентная ставка (% годовых)</label>
-  <input type="number" id="rate" placeholder="Например: 12" value="12" step="0.1">
-
-  <label for="years">Срок кредита (лет)</label>
-  <input type="number" id="years" placeholder="Например: 20" value="20">
-
-  <button onclick="calculate()">Рассчитать платёж</button>
-
-  <div class="result" id="result">
-    <div class="result-row">
-      <span>Ежемесячный платёж:</span>
-      <span id="monthly">—</span>
-    </div>
-    <div class="result-row">
-      <span>Общая сумма выплат:</span>
-      <span id="total">—</span>
-    </div>
-    <div class="result-row">
-      <span>Переплата по процентам:</span>
-      <span id="overpay">—</span>
-    </div>
-    <div class="result-row total">
-      <span>Итог:</span>
-      <span id="summary">—</span>
-    </div>
+  <div class="header">
+    <h1>Free Mortgage & Home Cost Calculators</h1>
+    <p>Real numbers for real buyers. No sign-up, no spam — just tools that tell you the truth about what you can afford.</p>
   </div>
+
+  <div class="cards">
+    <a href="self-employed.html" class="card">
+      <span class="badge">POPULAR</span>
+      <h2>Self-Employed Mortgage Calculator</h2>
+      <p>Find out how much you can borrow using your 2-year average income — the way lenders actually calculate it for freelancers and business owners.</p>
+      <span class="cta">Calculate my borrowing power →</span>
+    </a>
+
+    <a href="hidden-costs.html" class="card orange">
+      <span class="badge orange">⚠️ REVEALS HIDDEN FEES</span>
+      <h2>True Monthly Payment Calculator</h2>
+      <p>See the <strong>real</strong> cost of owning a home — including property tax, insurance, HOA fees, and PMI. Most calculators hide these costs.</p>
+      <span class="cta">Show me the true cost →</span>
+    </a>
+
+    <a href="thin-credit.html" class="card green">
+      <span class="badge green">NEW</span>
+      <h2>Thin Credit Mortgage Calculator</h2>
+      <p>Bad or limited credit history? See what mortgage options are available to you and what your rate might look like.</p>
+      <span class="cta">Check my options →</span>
+    </a>
+  </div>
+
+  <p class="footer">
+    All calculators are free and give instant results.<br>
+    Estimates only — always confirm with your lender.
+  </p>
 </div>
-
-<script>
-function calculate() {
-  const amount = parseFloat(document.getElementById('amount').value);
-  const rate = parseFloat(document.getElementById('rate').value);
-  const years = parseFloat(document.getElementById('years').value);
-
-  if (!amount || !rate || !years || amount <= 0 || rate <= 0 || years <= 0) {
-    alert('Пожалуйста, заполните все поля корректно');
-    return;
-  }
-
-  const monthlyRate = rate / 100 / 12;
-  const months = years * 12;
-  const monthlyPayment = amount * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
-  const totalPayment = monthlyPayment * months;
-  const overpayment = totalPayment - amount;
-
-  const fmt = (n) => n.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽';
-
-  document.getElementById('monthly').textContent = fmt(monthlyPayment);
-  document.getElementById('total').textContent = fmt(totalPayment);
-  document.getElementById('overpay').textContent = fmt(overpayment);
-  document.getElementById('summary').textContent = fmt(monthlyPayment) + ' / мес';
-  document.getElementById('result').classList.add('show');
-}
-</script>
 
 </body>
 </html>
