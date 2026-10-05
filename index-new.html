@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage & Home Cost Calculators — Free Tools for Home Buyers</title>
+<meta name="description" content="Free mortgage calculators for self-employed borrowers, hidden home costs, and buyers with thin credit. Know the real numbers before you buy.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    max-width: 720px;
+    width: 100%;
+  }
+  .header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    font-weight: 800;
+  }
+  .header p {
+    font-size: 17px;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    text-decoration: none;
+    color: #1a2b4a;
+    display: block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-left: 6px solid #3b6fe0;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  }
+  .card h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    color: #1a2b4a;
+  }
+  .card p {
+    font-size: 15px;
+    color: #6b7a99;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .card .cta {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3b6fe0;
+  }
+  .card.orange { border-left-color: #e65100; }
+  .card.orange .cta { color: #e65100; }
+  .card.green { border-left-color: #2e7d32; }
+  .card.green .cta { color: #2e7d32; }
+  .card.coming {
+    opacity: 0.55;
+    cursor: not-allowed;
+    border-left-color: #b0b8c8;
+  }
+  .card.coming .cta { color: #b0b8c8; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #e8f0ff;
+    color: #3b6fe0;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .badge.orange { background: #fff3e0; color: #e65100; }
+  .badge.green { background: #e8f5e9; color: #2e7d32; }
+  .badge.gray { background: #f0f0f0; color: #8a96ab; }
+  .footer {
+    text-align: center;
+    color: #fff;
+    opacity: 0.7;
+    font-size: 13px;
+    margin-top: 36px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Free Mortgage & Home Cost Calculators</h1>
+    <p>Real numbers for real buyers. No sign-up, no spam — just tools that tell you the truth about what you can afford.</p>
+  </div>
+
+  <div class="cards">
+    <a href="self-employed.html" class="card">
+      <span class="badge">POPULAR</span>
+      <h2>Self-Employed Mortgage Calculator</h2>
+      <p>Find out how much you can borrow using your 2-year average income — the way lenders actually calculate it for freelancers and business owners.</p>
+      <span class="cta">Calculate my borrowing power →</span>
+    </a>
+
+    <a href="hidden-costs.html" class="card orange">
+      <span class="badge orange">⚠️ REVEALS HIDDEN FEES</span>
+      <h2>True Monthly Payment Calculator</h2>
+      <p>See the <strong>real</strong> cost of owning a home — including property tax, insurance, HOA fees, and PMI. Most calculators hide these costs.</p>
+      <span class="cta">Show me the true cost →</span>
+    </a>
+
+    <a href="thin-credit.html" class="card green">
+      <span class="badge green">NEW</span>
+      <h2>Thin Credit Mortgage Calculator</h2>
+      <p>Bad or limited credit history? See what mortgage options are available to you and what your rate might look like.</p>
+      <span class="cta">Check my options →</span>
+    </a>
+  </div>
+
+  <p class="footer">
+    All calculators are free and give instant results.<br>
+    Estimates only — always confirm with your lender.
+  </p>
+</div>
+
+</body>
+</html>
