@@ -1,0 +1,102 @@
+<input type="number" id="income" placeholder="e.g. 60000" value="60000">
+
+  <label for="down">Down payment — USD</label>
+  <p class="hint">A larger down payment helps offset a low score</p>
+  <input type="number" id="down" placeholder="e.g. 30000" value="30000">
+
+  <label for="years">Loan term — years</label>
+  <input type="number" id="years" placeholder="e.g. 30" value="30">
+
+  <button onclick="calculate()">Show My Options</button>
+
+  <div class="result" id="result">
+    <h3>Your estimated mortgage options</h3>
+    <div class="result-row">
+      <span>Suggested loan type:</span>
+      <span id="loanType">—</span>
+    </div>
+    <div class="result-row">
+      <span>Estimated interest rate:</span>
+      <span id="rate">—</span>
+    </div>
+    <div class="result-row">
+      <span>Estimated home price:</span>
+      <span id="homePrice">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Estimated monthly payment:</span>
+      <span id="payment">—</span>
+    </div>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <p class="note">Estimates only. Actual rates depend on many factors. Talk to a lender for real numbers.</p>
+</div>
+
+<script>
+function calculate() {
+  const score = parseInt(document.getElementById('creditScore').value);
+  const income = parseFloat(document.getElementById('income').value);
+  const down = parseFloat(document.getElementById('down').value) || 0;
+  const years = parseFloat(document.getElementById('years').value);
+
+  if (!income || !years || income <= 0 || years <= 0) {
+    alert('Please fill in income and loan term');
+    return;
+  }
+
+  // Определяем тип кредита и ставку по скору
+  let loanType, rate, tip;
+
+  if (score === 0) {
+    loanType = 'FHA Loan or Non-QM';
+    rate = 7.5;
+    tip = '💡 No credit history is not the end. FHA loans allow non-traditional credit — like rent payments, utility bills, and phone bills. Ask your lender about "alternative credit."';
+  } else if (score >= 760) {
+    loanType = 'Conventional Loan';
+    rate = 6.0;
+    tip = '✅ Excellent credit. You qualify for the best rates. Consider getting quotes from at least 3 lenders — even 0.25% difference saves thousands over 30 years.';
+  } else if (score >= 700) {
+    loanType = 'Conventional Loan';
+    rate = 6.4;
+    tip = '👍 Good credit. You may qualify for conventional loans. Paying down debts to lower your DTI can get you an even better rate.';
+  } else if (score >= 660) {
+    loanType = 'Conventional or FHA';
+    rate = 6.9;
+    tip = 'You are on the edge. A slightly larger down payment (10%+) can help you qualify for better terms.';
+  } else if (score >= 620) {
+    loanType = 'FHA Loan (recommended)';
+    rate = 7.2;
+    tip = '⚠️ FHA loans are designed for you. They allow down payments as low as 3.5%. Work on raising your score to 660+ to save on interest.';
+  } else if (score >= 580) {
+    loanType = 'FHA Loan';
+    rate = 7.8;
+    tip = '⚠️ FHA allows scores from 580. Focus on paying every bill on time for 6–12 months — even a 20-point increase helps.';
+  } else {
+    loanType = 'Subprime / Hard Money';
+    rate = 9.5;
+    tip = '⚠️ Very limited options. Consider a co-signer with good credit, or work on your score for 12 months before buying. Talk to a HUD-approved housing counselor — free help.';
+  }
+
+  // Максимальный платёж — 43% от дохода в месяц
+  const monthlyIncome = income / 12;
+  const maxPayment = monthlyIncome * 0.43;
+
+  // Считаем, сколько можно занять
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  const maxLoan = maxPayment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
+  const homePrice = maxLoan + down;
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  document.getElementById('loanType').textContent = loanType;
+  document.getElementById('rate').textContent = rate + '%';
+  document.getElementById('homePrice').textContent = fmt(homePrice);
+  document.getElementById('payment').textContent = fmt(maxPayment) + ' / mo';document.getElementById('tip').textContent = tip;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+</html>
