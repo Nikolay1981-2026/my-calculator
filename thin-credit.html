@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thin Credit Mortgage Calculator — What Are Your Options?</title>
+<meta name="description" content="Bad or limited credit history? See what mortgage options are available to you and what your rate might look like.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -133,12 +134,22 @@
     line-height: 1.55;
   }
   .note {
-    font-size: 12px;
+    font-size: 13px;
     color: #8a96ab;
     margin-top: 20px;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.6;
   }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -158,6 +169,8 @@
     <option value="500">Very bad — below 580</option>
     <option value="0">No credit history at all</option>
   </select>
+
+  <label for="income">Your annual income — USD</label>
   <input type="number" id="income" placeholder="e.g. 60000" value="60000">
 
   <label for="down">Down payment — USD</label>
@@ -190,7 +203,9 @@
     <div class="tip" id="tip"></div>
   </div>
 
-  <p class="note">Estimates only. Actual rates depend on many factors. Talk to a lender for real numbers.</p>
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual rates, terms, and loan approvals depend on your lender, credit profile, income documentation, location, and full financial picture. Always confirm your numbers with a licensed mortgage professional before making any decision.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
 </div>
 
 <script>
@@ -239,7 +254,6 @@ function calculate() {
 
   const monthlyIncome = income / 12;
   const maxPayment = monthlyIncome * 0.43;
-
   const monthlyRate = rate / 100 / 12;
   const months = years * 12;
   const maxLoan = maxPayment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
@@ -258,5 +272,3 @@ function calculate() {
 
 </body>
 </html>
-
-  <label for="income">Your annual income — USD</label>
