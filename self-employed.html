@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Self-Employed Mortgage Calculator — How Much Can You Borrow?</title> 
-  <style>
+<title>Self-Employed Mortgage Calculator — How Much Can You Borrow?</title>
+<meta name="description" content="Find out how much you can borrow with a self-employed mortgage. Uses your 2-year average income, the way lenders actually calculate it.">
+<style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -115,12 +116,22 @@
   }
   .result-row.total span:last-child { color: #3b6fe0; }
   .note {
-    font-size: 12px;
+    font-size: 13px;
     color: #8a96ab;
     margin-top: 20px;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.6;
   }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #3b6fe0;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -140,7 +151,6 @@
 
   <label for="down">Down payment — USD</label>
   <input type="number" id="down" placeholder="e.g. 60000" value="60000">
-
   <label for="rate">Interest rate — % per year</label>
   <input type="number" id="rate" placeholder="e.g. 6.5" value="6.5" step="0.1">
 
@@ -164,7 +174,9 @@
     </div>
   </div>
 
-  <p class="note">This is an estimate. Lenders may apply additional rules for self-employed borrowers.</p>
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual rates, terms, and borrowing limits depend on your lender, credit profile, location, and full financial picture. Always confirm your numbers with a licensed mortgage professional before making any decision.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
 </div>
 
 <script>
@@ -180,13 +192,8 @@ function calculate() {
     return;
   }
 
-  // Логика для самозанятых: банки берут средний доход за 2 года
   const avgMonthlyIncome = ((inc1 + inc2) / 2) / 12;
-
-  // Банки обычно разрешают платить по ипотеке до 43% от дохода (DTI ratio)
   const maxMonthlyPayment = avgMonthlyIncome * 0.43;
-
-  // Считаем, сколько можно занять под этот платёж
   const monthlyRate = rate / 100 / 12;
   const months = years * 12;
   const maxLoan = maxMonthlyPayment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
