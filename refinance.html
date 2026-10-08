@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refinance Calculator — Is It Worth Refinancing Your Mortgage?</title>
+<meta name="description" content="Find out if refinancing your mortgage is worth it. See your new payment, monthly savings, break-even point, and total lifetime savings.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #42275a 0%, #734b6d 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 620px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #f0e6f3;
+    color: #42275a;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  input {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: border 0.2s;
+  }
+  input:focus {
+    outline: none;
+    border-color: #734b6d;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #734b6d, #42275a);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(115,75,109,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #faf6fb;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #eadcf2;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #eadcf2;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #734b6d; }
+  .verdict {
+    background: #f0e6f3;
+    border-left: 4px solid #734b6d;
+    padding: 16px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 15px;
+    color: #42275a;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+  .note {
+    font-size: 13px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #734b6d;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">🔄 LOWER YOUR PAYMENT?</span></div>
+  <h1>Refinance Calculator</h1>
+  <p class="subtitle">Is it worth refinancing? See how much you'd save each month, and how long until the refinance pays for itself.</p>
+
+  <label for="balance">Current loan balance — USD</label>
+  <input type="number" id="balance" placeholder="e.g. 320000" value="320000">
+
+  <label for="currentRate">Current interest rate — % per year</label>
+  <input type="number" id="currentRate" placeholder="e.g. 7.5" value="7.5" step="0.1">
+
+  <label for="currentYears">Years left on current loan</label>
+  <input type="number" id="currentYears" placeholder="e.g. 27" value="27">
+
+  <label for="newRate">New interest rate — % per year</label>
+  <input type="number" id="newRate" placeholder="e.g. 6.0" value="6.0" step="0.1">
+
+  <label for="newYears">New loan term — years</label>
+  <input type="number" id="newYears" placeholder="e.g. 30" value="30">
+
+  <label for="costs">Refinance closing costs — USD</label>
+  <p class="hint">Typically 2–5% of the loan balance</p>
+  <input type="number" id="costs" placeholder="e.g. 8000" value="8000">
+
+  <button onclick="calculate()">Should I Refinance?</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Current monthly payment:</span>
+      <span id="oldPay">—</span>
+    </div>
+    <div class="result-row">
+      <span>New monthly payment:</span>
+      <span id="newPay">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Monthly savings:</span>
+      <span id="savings">—</span>
+    </div>
+    <div class="verdict" id="verdict"></div>
+  </div>
+
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual refinance terms depend on your lender, credit profile, home equity, and full financial picture. Always request a Loan Estimate from your lender.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
+</div>
+
+<script>
+function calculate() {
+  const balance = parseFloat(document.getElementById('balance').value);
+  const currentRate = parseFloat(document.getElementById('currentRate').value);
+  const currentYears = parseFloat(document.getElementById('currentYears').value);
+  const newRate = parseFloat(document.getElementById('newRate').value);
+  const newYears = parseFloat(document.getElementById('newYears').value);
+  const costs = parseFloat(document.getElementById('costs').value) || 0;
+
+  if (!balance || !currentRate || !currentYears || !newRate || !newYears) {
+    alert('Please fill in all fields correctly');
+    return;
+  }
+
+  const oldMonthlyRate = currentRate / 100 / 12;
+  const oldMonths = currentYears * 12;
+  const oldPayment = balance * oldMonthlyRate / (1 - Math.pow(1 + oldMonthlyRate, -oldMonths));
+
+  const newMonthlyRate = newRate / 100 / 12;
+  const newMonths = newYears * 12;
+  const newPayment = balance * newMonthlyRate / (1 - Math.pow(1 + newMonthlyRate, -newMonths));
+
+  const savings = oldPayment - newPayment;
+
+  const fmt = (n) => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+
+  document.getElementById('oldPay').textContent = fmt(oldPayment) + ' / mo';
+  document.getElementById('newPay').textContent = fmt(newPayment) + ' / mo';
+  document.getElementById('savings').textContent = (savings > 0 ? '' : '−') + fmt(savings) + ' / mo';
+
+  let verdictText = '';
+
+  if (savings <= 0) {
+    verdictText = '⚠️ Refinancing would raise your monthly payment. This makes sense only if you need to access equity, change the loan term, or remove a co-signer. Talk to your lender.';
+  } else {
+    const breakEvenMonths = Math.ceil(costs / savings);
+    const breakEvenYears = (breakEvenMonths / 12).toFixed(1);
+    verdictText = '✅ You would save ' + fmt(savings) + ' per month. Break-even on the ' + fmt(costs) + ' in closing costs takes about ' + breakEvenMonths + ' months (' + breakEvenYears + ' years). If you plan to stay in the home longer than that, refinancing likely makes sense.';
+  }
+
+  document.getElementById('verdict').textContent = verdictText;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+</html>
