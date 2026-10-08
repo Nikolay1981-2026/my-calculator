@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Down Payment Calculator — How Much Should You Save?</title>
+<meta name="description" content="Find out how long it will take to save for a down payment — and how a bigger down payment saves you on PMI and interest.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #134e5e 0%, #3a8ca0 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 620px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #e0f2f4;
+    color: #134e5e;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  input, select {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: border 0.2s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: #3a8ca0;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #3a8ca0, #134e5e);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58,140,160,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f4fbfd;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #d4eef5;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d4eef5;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #134e5e; }
+  .tip {
+    background: #e0f2f4;
+    border-left: 4px solid #134e5e;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #134e5e;
+    line-height: 1.6;
+  }
+  .note {
+    font-size: 13px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #134e5e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">💰 SAVE SMARTER</span></div>
+  <h1>Down Payment Calculator</h1>
+  <p class="subtitle">Find out how long it will take to save for a down payment — and how much PMI you avoid by putting more down.</p>
+
+  <label for="price">Home price — USD</label>
+  <input type="number" id="price" placeholder="e.g. 400000" value="400000">
+
+  <label for="percent">Down payment — %</label>
+  <select id="percent">
+    <option value="3.5">3.5% — FHA minimum</option>
+    <option value="5">5% — Low down payment</option>
+    <option value="10">10% — Standard low</option>
+    <option value="20" selected>20% — Avoids PMI</option>
+    <option value="25">25% — Strong position</option>
+  </select>
+
+  <label for="current">Current savings — USD</label>
+  <input type="number" id="current" placeholder="e.g. 15000" value="15000">
+
+  <label for="monthly">Monthly saving — USD</label>
+  <input type="number" id="monthly" placeholder="e.g. 1500" value="1500">
+
+  <button onclick="calculate()">Calculate My Timeline</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Target down payment:</span>
+      <span id="target">—</span>
+    </div>
+    <div class="result-row">
+      <span>You still need to save:</span>
+      <span id="need">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Time to reach your goal:</span>
+      <span id="time">—</span>
+    </div>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not financial advice. Closing costs (2–5% of the home price) are not included — budget for them separately.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
+</div>
+
+<script>
+function calculate() {
+  const price = parseFloat(document.getElementById('price').value);
+  const percent = parseFloat(document.getElementById('percent').value);
+  const current = parseFloat(document.getElementById('current').value) || 0;
+  const monthly = parseFloat(document.getElementById('monthly').value);
+
+  if (!price || !percent || !monthly || price <= 0 || monthly <= 0) {
+    alert('Please fill in all fields correctly');
+    return;
+  }
+
+  const target = price * percent / 100;
+  const need = Math.max(0, target - current);
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  document.getElementById('target').textContent = fmt(target);
+  document.getElementById('need').textContent = fmt(need);
+
+  let tipText = '';
+
+  if (need === 0) {
+    document.getElementById('time').textContent = '🎉 Goal reached!';
+    tipText = 'You already have enough saved for a ' + percent + '% down payment. Next step: check closing costs — they usually add 2–5% on top of the price.';
+  } else {
+    const monthsNeeded = Math.ceil(need / monthly);
+    const years = Math.floor(monthsNeeded / 12);
+    const months = monthsNeeded % 12;
+
+    let timeText = '';
+    if (years > 0) timeText += years + ' year' + (years > 1 ? 's' : '');
+    if (months > 0) {
+      if (years > 0) timeText += ' and ';
+      timeText += months + ' month' + (months > 1 ? 's' : '');
+    }
+    document.getElementById('time').textContent = timeText;
+
+    if (percent < 20) {
+      const pmiMonthly = (price - target) * 0.007 / 12;
+      tipText = '⚠️ With less than 20% down, you will likely pay PMI (private mortgage insurance) of about ' + fmt(pmiMonthly) + ' per month until you reach 20% equity. Saving up to 20% can save you thousands.';
+    } else {
+      tipText = '✅ 20% down means no PMI. You are in a strong position — lenders will offer you better rates and terms.';
+    }
+  }
+
+  document.getElementById('tip').textContent = tipText;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+</html>
