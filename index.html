@@ -204,5 +204,37 @@
     navigator.serviceWorker.register('/my-calculator/sw.js');
   }
 </script>
+<div id="installBanner" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1a2b4a; color:#fff; padding:14px 22px; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4); font-family:'Segoe UI',Arial,sans-serif; font-size:14px; z-index:1000; align-items:center; gap:14px;">
+  <span>📱 Install this app on your device</span>
+  <button id="installBtn" style="background:#3b6fe0; color:#fff; border:none; padding:8px 16px; border-radius:8px; font-weight:bold; cursor:pointer; font-size:14px;">Install</button>
+  <button id="dismissBtn" style="background:transparent; color:#8a96ab; border:none; cursor:pointer; font-size:20px; line-height:1;">×</button>
+</div>
+<script>
+  let deferredPrompt;
+  const banner = document.getElementById('installBanner');
+  const installBtn = document.getElementById('installBtn');
+  const dismissBtn = document.getElementById('dismissBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!localStorage.getItem('installDismissed')) {
+      banner.style.display = 'flex';
+    }
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    banner.style.display = 'none';
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    banner.style.display = 'none';
+    localStorage.setItem('installDismissed', 'true');
+  });
+</script>
 </body>
 </html>
