@@ -217,5 +217,10 @@ function calculate() {
 }
 </script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-calculator/sw.js');
+  }
+</script>
 </body>
 </html>
