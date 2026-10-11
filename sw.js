@@ -10,6 +10,9 @@ const urlsToCache = [
   '/my-calculator/down-payment.html',
   '/my-calculator/refinance.html',
   '/my-calculator/thin-credit.html'
+  '/my-calculator/property-tax.html',
+  '/my-calculator/mortgage-payoff.html',
+  '/my-calculator/affordability.html',
 ];
 
 self.addEventListener('install', event => {
