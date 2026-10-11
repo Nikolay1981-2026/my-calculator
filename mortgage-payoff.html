@@ -164,3 +164,136 @@
 <body>
 
 <div class="container">
+  <div class="center"><span class="badge">⚡ PAY OFF FASTER</span></div>
+  <h1>Mortgage Payoff Calculator</h1>
+  <p class="subtitle">See how much time and interest you save by paying a little extra each month.</p>
+
+  <label for="balance">Current loan balance — USD</label>
+  <input type="number" id="balance" placeholder="e.g. 320000" value="320000">
+
+  <label for="rate">Interest rate — % per year</label>
+  <input type="number" id="rate" placeholder="e.g. 6.5" value="6.5" step="0.1">
+
+  <label for="years">Years remaining on loan</label>
+  <input type="number" id="years" placeholder="e.g. 27" value="27">
+
+  <label for="extra">Extra monthly payment — USD</label>
+  <p class="hint">Even $100/month makes a big difference</p>
+  <input type="number" id="extra" placeholder="e.g. 200" value="200">
+
+  <button onclick="calculate()">Calculate My Payoff</button>
+
+  <div class="result" id="result">
+    <h3>Without extra payments</h3>
+    <div class="result-row">
+      <span>Monthly payment:</span>
+      <span id="basePay">—</span>
+    </div>
+    <div class="result-row">
+      <span>Total interest paid:</span>
+      <span id="baseInterest">—</span>
+    </div>
+
+    <h3 style="margin-top:20px;">With extra payments</h3>
+    <div class="result-row">
+      <span>New monthly payment:</span>
+      <span id="newPay">—</span>
+    </div>
+    <div class="result-row">
+      <span>Total interest paid:</span>
+      <span id="newInterest">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Time saved:</span>
+      <span id="timeSaved">—</span>
+    </div>
+    <div class="result-row saved">
+      <span>Interest saved:</span>
+      <span id="interestSaved">—</span>
+    </div>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not financial advice. Actual savings depend on your lender, loan terms, and payment schedule. Check with your lender before making extra payments.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
+</div>
+
+<script>
+function calculate() {
+  const balance = parseFloat(document.getElementById('balance').value);
+  const rate = parseFloat(document.getElementById('rate').value);
+  const years = parseFloat(document.getElementById('years').value);
+  const extra = parseFloat(document.getElementById('extra').value) || 0;
+
+  if (!balance || !rate || !years || balance <= 0 || rate <= 0 || years <= 0) {
+    alert('Please fill in all fields correctly');
+    return;
+  }
+
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  const basePayment = balance * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+  const baseInterest = (basePayment * months) - balance;
+
+  const newPayment = basePayment + extra;
+  let newBalance = balance;
+  let newMonths = 0;
+  let newInterestTotal = 0;
+
+  while (newBalance > 0 && newMonths < 1000) {
+    const interestPart = newBalance * monthlyRate;
+    let principalPart = newPayment - interestPart;
+    if (principalPart > newBalance) principalPart = newBalance;
+    newBalance -= principalPart;
+    newInterestTotal += interestPart;
+    newMonths++;
+  }
+
+  const monthsSaved = months - newMonths;
+  const yearsSaved = Math.floor(monthsSaved / 12);
+  const monthsLeftSaved = monthsSaved % 12;
+  const interestSaved = baseInterest - newInterestTotal;
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  document.getElementById('basePay').textContent = fmt(basePayment) + ' / mo';
+  document.getElementById('baseInterest').textContent = fmt(baseInterest);
+  document.getElementById('newPay').textContent = fmt(newPayment) + ' / mo';
+  document.getElementById('newInterest').textContent = fmt(newInterestTotal);
+
+  let timeText = '';
+  if (yearsSaved > 0) timeText += yearsSaved + ' year' + (yearsSaved > 1 ? 's' : '');
+  if (monthsLeftSaved > 0) {
+    if (yearsSaved > 0) timeText += ' and ';
+    timeText += monthsLeftSaved + ' month' + (monthsLeftSaved > 1 ? 's' : '');
+  }
+  if (!timeText) timeText = 'No change';
+  document.getElementById('timeSaved').textContent = timeText;
+
+  document.getElementById('interestSaved').textContent = fmt(interestSaved);
+
+  let tipText = '';
+  if (extra === 0) {
+    tipText = '💡 Try adding even $100/month — you will see how much it saves.';
+  } else if (interestSaved > 50000) {
+    tipText = '🔥 Adding ' + fmt(extra) + '/month saves you ' + fmt(interestSaved) + ' in interest. That is huge — you are essentially buying yourself years of freedom.';
+  } else if (interestSaved > 10000) {
+    tipText = '✅ Adding ' + fmt(extra) + '/month saves you ' + fmt(interestSaved) + ' in interest. Solid win — worth doing if your budget allows.';
+  } else {
+    tipText = '💡 Adding ' + fmt(extra) + '/month saves you ' + fmt(interestSaved) + ' in interest. Every bit helps.';
+  }
+
+  document.getElementById('tip').textContent = tipText;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-calculator/sw.js');
+  }
+</script>
+
+</body>
+</html>
