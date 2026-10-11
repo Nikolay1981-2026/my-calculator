@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5PKY6LFBJS');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Tax Calculator — Estimate Your Annual Property Taxes</title>
+<meta name="description" content="Calculate property taxes on any US home. See annual and monthly taxes by state, and compare effective tax rates across the country.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #134e5e 0%, #2c5364 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 620px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #e0f2f4;
+    color: #134e5e;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  input, select {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: border 0.2s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: #134e5e;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #2c5364, #134e5e);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(19,78,94,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f4fbfd;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #d4eef5;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d4eef5;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #134e5e; }
+  .tip {
+    background: #e0f2f4;
+    border-left: 4px solid #134e5e;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #134e5e;
+    line-height: 1.6;
+  }
+  .note {
+    font-size: 13px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #134e5e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">🏠 ANNUAL PROPERTY TAX</span></div>
+  <h1>Property Tax Calculator</h1>
+  <p class="subtitle">See how much you'll pay in property taxes every year — and what it adds to your monthly payment.</p>
+
+  <label for="price">Home value — USD</label>
+  <input type="number" id="price" placeholder="e.g. 400000" value="400000">
+
+  <label for="state">State</label>
+  <select id="state">
+    <option value="0.28">Hawaii — 0.28% (lowest)</option>
+    <option value="0.32">Alabama — 0.32%</option>
+    <option value="0.37">Colorado — 0.37%</option>
+    <option value="0.41">Nevada — 0.41%</option>
+    <option value="0.43">Utah — 0.43%</option>
+    <option value="0.48">Wyoming — 0.48%</option>
+    <option value="0.49">Arizona — 0.49%</option>
+    <option value="0.52">South Carolina — 0.52%</option>
+    <option value="0.55">California — 0.55%</option>
+    <option value="0.58">Tennessee — 0.58%</option>
+    <option value="0.63">Idaho — 0.63%</option>
+    <option value="0.68">Montana — 0.68%</option>
+    <option value="0.72">New Mexico — 0.72%</option>
+    <option value="0.74">Delaware — 0.74%</option>
+    <option value="0.76">North Carolina — 0.76%</option>
+    <option value="0.78">Indiana — 0.78%</option>
+    <option value="0.81">Georgia — 0.81%</option>
+    <option value="0.82">Washington — 0.82%</option>
+    <option value="0.85">Virginia — 0.85%</option>
+    <option value="0.87">Kentucky — 0.87%</option>
+    <option value="0.88">Arkansas — 0.88%</option>
+    <option value="0.89">Mississippi — 0.89%</option>
+    <option value="0.91">Louisiana — 0.91%</option>
+    <option value="0.92">Florida — -row0.92%</option">
+>
+    <option value="0.95">Oklahoma — 0.95%</option>
+    <option value="0.98">Missouri — 0.98%</option>
+    <option value="1.00">South Dakota — 1.00%</option>
+    <option value="1.02">Oregon — 1.02%</option>
+    <option value="1.05">Kansas — 1.05%</option>
+    <option value="1.08">Maine — 1.08%</option>
+    <option value="1.10">Maryland — 1.10%</option>
+    <option value="1.12">Minnesota — 1.12%</option>
+    <option value="1.15">Massachusetts — 1.15%</option>
+    <option value="1.18">West Virginia — 1.18%</option>
+    <option value="1.20">North Dakota — 1.20%</option>
+    <option value="1.23">Pennsylvania — 1.23%</option>
+    <option value="1.25">Michigan — 1.25%</option>
+    <option value="1.28">Iowa — 1.28%</option>
+    <option value="1.30">Ohio — 1.30%</option>
+    <option value="1.32">Wisconsin — 1.32%</option>
+    <option value="1.36">Nebraska — 1.36%</option>
+    <option value="1.40">New York — 1.40%</option>
+    <option value="1.45">Rhode Island — 1.45%</option>
+    <option value="1.48">Alaska — 1.48%</option>
+    <option value="1.50">Vermont — 1.50%</option>
+    <option value="1.55">New Hampshire — 1.55%</option>
+    <option value="1.60">Connecticut — 1.60%</option>
+    <option value="1.70">Texas — 1.70%</option>
+    <option value="1.80">Illinois — 1.80% (highest)</option>
+    <option value="1.85">New Jersey — 1.85% (highest)</option>
+  </select>
+
+  <button onclick="calculate()">Calculate My Property Tax</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Effective tax rate:</span>
+      <span id="rate">—</span>
+    </div>
+    <div class="result-row">
+      <span>Annual property tax:</span>
+      <span id="annual">—</span>
+    </div>
+    <div class="result      <span>Monthly property tax:</span>
+      <span id="monthly">—</span>
+    </div>
+    <div class="result-row total">
+      <span>Effective monthly cost:</span>
+      <span id="total">—</span>
+    </div>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <p class="note">This calculator provides an estimate for educational purposes only. Actual property taxes depend on your local assessment, exemptions, and specific taxing districts. Always check with your county assessor for exact numbers.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
+</div>
+
+<script>
+function calculate() {
+  const price = parseFloat(document.getElementById('price').value);
+  const rate = parseFloat(document.getElementById('state').value);
+
+  if (!price || price <= 0) {
+    alert('Please enter a valid home value');
+    return;
+  }
+
+  const annualTax = price * rate / 100;
+  const monthlyTax = annualTax / 12;
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  document.getElementById('rate').textContent = rate.toFixed(2) + '%';
+  document.getElementById('annual').textContent = fmt(annualTax) + ' / year';
+  document.getElementById('monthly').textContent = fmt(monthlyTax) + ' / month';
+  document.getElementById('total').textContent = fmt(monthlyTax) + ' / mo';
+
+  const stateSelect = document.getElementById('state');
+  const stateText = stateSelect.options[stateSelect.selectedIndex].text;
+  const stateName = stateText.split('—')[0].trim();
+
+  let tipText = '';
+  if (rate >= 1.5) {
+    tipText = '⚠️ ' + stateName + ' has one of the highest property tax rates in the country. This adds significantly to your monthly cost — make sure to factor it into your budget.';
+  } else if (rate >= 1.0) {
+    tipText = '💡 ' + stateName + ' has a moderate-to-high property tax rate. This is a normal cost of homeownership here, but consider it in your monthly payment.';
+  } else {
+    tipText = '✅ ' + stateName + ' has a relatively low property tax rate. This is one of the advantages of buying here — your monthly payment stays lower.';
+  }
+
+  document.getElementById('tip').textContent = tipText;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-calculator/sw.js');
+  }
+</script>
+
+</body>
+</html>
