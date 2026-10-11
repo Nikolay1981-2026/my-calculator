@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mortgage-calc-v1';
+const CACHE_NAME = 'mortgage-calc-v2';
 const urlsToCache = [
   '/my-calculator/',
   '/my-calculator/index.html',
