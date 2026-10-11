@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5PKY6LFBJS');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Affordability Calculator — How Much House Can You Afford?</title>
+<meta name="description" content="Find out how much house you can afford based on your income, debts, and down payment. Uses the 43% DTI rule that lenders actually apply.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027 0%, #2c5364 50%, #3a8ca0 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 620px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .subtitle {
+    color: #6b7a99;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    background: #e0f7fa;
+    color: #006064;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .center { text-align: center; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .hint {
+    font-size: 12px;
+    color: #8a96ab;
+    margin-bottom: 6px;
+    font-weight: normal;
+  }
+  input {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: border 0.2s;
+  }
+  input:focus {
+    outline: none;
+    border-color: #006064;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #2c5364, #0f2027);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(44,83,100,0.4);
+  }
+  .result {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f4fbfd;
+    border-radius: 14px;
+    display: none;
+    border: 2px solid #d4eef5;
+  }
+  .result.show { display: block; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+    color: #1a2b4a;
+  }
+  .result-row.total {
+    border-top: 2px solid #d4eef5;
+    margin-top: 10px;
+    padding-top: 16px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .result-row.total span:last-child { color: #006064; }
+  .tip {
+    background: #e0f7fa;
+    border-left: 4px solid #006064;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #006064;
+    line-height: 1.6;
+  }
+  .note {
+    font-size: 13px;
+    color: #8a96ab;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #006064;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="center"><span class="badge">🏡 HOW MUCH HOUSE?</span></div>
+  <h1>Home Affordability Calculator</h1>
+  <p class="subtitle">Based on the 43% DTI rule that lenders use — see what home price fits your real budget.</p>
+
+  <label for="income">Annual household income — USD</label>
+  <p class="hint">Before taxes</p>
+  <input type="number" id="income" placeholder="e.g. 85000" value="85000">
+
+  <label for="debts">Monthly debt payments — USD</label>
+  <p class="hint">Car loans, credit cards, student loans (not rent)</p>
+  <input type="number" id="debts" placeholder="e.g. 500" value="500">
+
+  <label for="down">Down payment — USD</label>
+  <input type="number" id="down" placeholder="e.g. 80000" value="80000">
+
+  <label for="rate">Interest rate — % per year</label>
+  <input type="number" id="rate" placeholder="e.g. 6.5" value="6.5" step="0.1">
+
+  <label for="years">Loan term — years</label>
+  <input type="number" id="years" placeholder="e.g. 30" value="30">
+
+  <button onclick="calculate()">Calculate My Home Budget</button>
+
+  <div class="result" id="result">
+    <div class="result-row">
+      <span>Max monthly housing payment:</span>
+      <span id="maxPay">—</span>
+    </div>
+    <div class="result-row">
+      <span>After taxes & insurance:</span>
+      <span id="afterExtras">—</span>
+    </div>
+    <div class="result-row">
+      <span>Max loan amount:</span>
+      <span id="maxLoan">—</span>
+    </div>
+    <div class="result-row total">
+      <span>You can afford a home up to:</span>
+      <span id="total">—</span>
+    </div>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual affordability depends on your credit score, employment history, lender guidelines, and full financial picture. Always talk to a licensed mortgage professional.</p>
+
+  <a href="index.html" class="back-link">← Back to all calculators</a>
+</div>
+
+<script>
+function calculate() {
+  const income = parseFloat(document.getElementById('income').value);
+  const debts = parseFloat(document.getElementById('debts').value) || 0;
+  const down = parseFloat(document.getElementById('down').value) || 0;
+  const rate = parseFloat(document.getElementById('rate').value);
+  const years = parseFloat(document.getElementById('years').value);
+
+  if (!income || !rate || !years || income <= 0 || rate <= 0 || years <= 0) {
+    alert('Please fill in all required fields correctly');
+    return;
+  }
+
+  const monthlyIncome = income / 12;
+  const maxHousing = (monthlyIncome * 0.43) - debts;
+
+  if (maxHousing <= 0) {
+    alert('Your debts are too high relative to your income to afford a home right now. Consider paying down debts first.');
+    return;
+  }
+
+  const taxAndInsurance = (income * 0.011 / 12) + 120;
+  const availableForLoan = maxHousing - taxAndInsurance;
+
+  if (availableForLoan <= 0) {
+    alert('Your income does not support a mortgage at this time.');
+    return;
+  }
+
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  const maxLoan = availableForLoan * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
+  const homePrice = maxLoan + down;
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  document.getElementById('maxPay').textContent = fmt(maxHousing) + ' / mo';
+  document.getElementById('afterExtras').textContent = fmt(availableForLoan) + ' / mo';
+  document.getElementById('maxLoan').textContent = fmt(maxLoan);
+  document.getElementById('total').textContent = fmt(homePrice);
+
+  let tipText = '';
+  if (homePrice > 800000) {
+    tipText = '✅ You are in a strong position. You can afford homes in most markets across the US. Just remember — a bigger mortgage means a bigger monthly commitment.';
+  } else if (homePrice > 400000) {
+    tipText = '💡 You can afford a solid mid-range home in most US markets. Consider keeping some cash reserves for closing costs and emergencies.';
+    } else if (homePrice > 200000) {
+    tipText = '⚠️ Your budget supports entry-level homes. Focus on saving a bigger down payment — it will lower your monthly payment and help you avoid PMI.';
+  } else {
+    tipText = '⚠️ Your current numbers limit your options. Consider increasing income, paying down debts, or saving a larger down payment before buying.';
+  }
+
+  document.getElementById('tip').textContent = tipText;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-calculator/sw.js');
+  }
+</script>
+
+</body>
+</html>
