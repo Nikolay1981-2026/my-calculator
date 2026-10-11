@@ -164,8 +164,8 @@
   <label for="price">Home value — USD</label>
   <input type="number" id="price" placeholder="e.g. 400000" value="400000">
 
-  <label for="state">State</label>
-  <select id="state">
+  <label for="stateSelect">State</label>
+  <select id="stateSelect">
     <option value="0.28">Hawaii — 0.28% (lowest)</option>
     <option value="0.32">Alabama — 0.32%</option>
     <option value="0.37">Colorado — 0.37%</option>
@@ -189,8 +189,7 @@
     <option value="0.88">Arkansas — 0.88%</option>
     <option value="0.89">Mississippi — 0.89%</option>
     <option value="0.91">Louisiana — 0.91%</option>
-    <option value="0.92">Florida — -row0.92%</option">
->
+    <option value="0.92">Florida — 0.92%</option>
     <option value="0.95">Oklahoma — 0.95%</option>
     <option value="0.98">Missouri — 0.98%</option>
     <option value="1.00">South Dakota — 1.00%</option>
@@ -215,7 +214,7 @@
     <option value="1.55">New Hampshire — 1.55%</option>
     <option value="1.60">Connecticut — 1.60%</option>
     <option value="1.70">Texas — 1.70%</option>
-    <option value="1.80">Illinois — 1.80% (highest)</option>
+    <option value="1.80">Illinois — 1.80%</option>
     <option value="1.85">New Jersey — 1.85% (highest)</option>
   </select>
 
@@ -224,20 +223,21 @@
   <div class="result" id="result">
     <div class="result-row">
       <span>Effective tax rate:</span>
-      <span id="rate">—</span>
+      <span id="rateOut">—</span>
     </div>
     <div class="result-row">
       <span>Annual property tax:</span>
-      <span id="annual">—</span>
+      <span id="annualOut">—</span>
     </div>
-    <div class="result      <span>Monthly property tax:</span>
-      <span id="monthly">—</span>
+    <div class="result-row">
+      <span>Monthly property tax:</span>
+      <span id="monthlyOut">—</span>
     </div>
     <div class="result-row total">
       <span>Effective monthly cost:</span>
-      <span id="total">—</span>
+      <span id="totalOut">—</span>
     </div>
-    <div class="tip" id="tip"></div>
+    <div class="tip" id="tipOut"></div>
   </div>
 
   <p class="note">This calculator provides an estimate for educational purposes only. Actual property taxes depend on your local assessment, exemptions, and specific taxing districts. Always check with your county assessor for exact numbers.</p>
@@ -246,9 +246,10 @@
 </div>
 
 <script>
-function calculate() {
+  function calculate() {
   const price = parseFloat(document.getElementById('price').value);
-  const rate = parseFloat(document.getElementById('state').value);
+  const stateSelect = document.getElementById('stateSelect');
+  const rate = parseFloat(stateSelect.value);
 
   if (!price || price <= 0) {
     alert('Please enter a valid home value');
@@ -260,12 +261,11 @@ function calculate() {
 
   const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
 
-  document.getElementById('rate').textContent = rate.toFixed(2) + '%';
-  document.getElementById('annual').textContent = fmt(annualTax) + ' / year';
-  document.getElementById('monthly').textContent = fmt(monthlyTax) + ' / month';
-  document.getElementById('total').textContent = fmt(monthlyTax) + ' / mo';
+  document.getElementById('rateOut').textContent = rate.toFixed(2) + '%';
+  document.getElementById('annualOut').textContent = fmt(annualTax) + ' / year';
+  document.getElementById('monthlyOut').textContent = fmt(monthlyTax) + ' / month';
+  document.getElementById('totalOut').textContent = fmt(monthlyTax) + ' / mo';
 
-  const stateSelect = document.getElementById('state');
   const stateText = stateSelect.options[stateSelect.selectedIndex].text;
   const stateName = stateText.split('—')[0].trim();
 
@@ -278,7 +278,7 @@ function calculate() {
     tipText = '✅ ' + stateName + ' has a relatively low property tax rate. This is one of the advantages of buying here — your monthly payment stays lower.';
   }
 
-  document.getElementById('tip').textContent = tipText;
+  document.getElementById('tipOut').textContent = tipText;
   document.getElementById('result').classList.add('show');
 }
 </script>
