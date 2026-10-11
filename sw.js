@@ -1,46 +1,7 @@
-const CACHE_NAME = 'mortgage-calc-v3';
-const urlsToCache = [
-  '/my-calculator/',
-  '/my-calculator/index.html',
-  '/my-calculator/about.html',
-  '/my-calculator/self-employed.html',
-  '/my-calculator/hidden-costs.html',
-  '/my-calculator/closing-costs.html',
-  '/my-calculator/rent-vs-buy.html',
-  '/my-calculator/down-payment.html',
-  '/my-calculator/refinance.html',
-  '/my-calculator/thin-credit.html'
-  '/my-calculator/property-tax.html',
-  '/my-calculator/mortgage-payoff.html',
-  '/my-calculator/affordability.html',
-];
+const CACHE_NAME = 'mortgage-calc-v4';
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request).then(response => {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
-        const responseToCache = response.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseToCache);
-        });
-        return response;
-      });
-    })
-  );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -53,6 +14,13 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });
