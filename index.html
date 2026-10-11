@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
- <link rel="manifest" href="manifest.json">
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage & Home Cost Calculators — Free Tools for Home Buyers</title>
-<meta name="description" content="Free mortgage calculators: self-employed, closing costs, rent vs buy, down payment, refinance, hidden costs, and thin credit. Know the real numbers before you buy.">
+<title>10 Free Mortgage & Home Cost Calculators for Home Buyers</title>
+<meta name="description" content="Free mortgage calculators: self-employed, closing costs, rent vs buy, down payment, refinance, property tax, payoff, affordability, hidden costs, thin credit.">
 <meta name="google-site-verification" content="rPPs9SrH7zgd2axY6ZntE-V6ZYfJZEl3uNEHvwXNemE" />
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,6 +54,10 @@
   .card.dark .cta { color: #2c5364; }
   .card.plum { border-left-color: #734b6d; }
   .card.plum .cta { color: #734b6d; }
+  .card.crimson { border-left-color: #b71c1c; }
+  .card.crimson .cta { color: #b71c1c; }
+  .card.navy { border-left-color: #1e3c72; }
+  .card.navy .cta { color: #1e3c72; }
   .badge {
     display: inline-block; font-size: 11px; font-weight: bold;
     padding: 3px 10px; border-radius: 20px;
@@ -66,12 +70,14 @@
   .badge.teal { background: #e0f2f4; color: #134e5e; }
   .badge.dark { background: #e0f7fa; color: #2c5364; }
   .badge.plum { background: #f0e6f3; color: #734b6d; }
+  .badge.crimson { background: #ffebee; color: #b71c1c; }
+  .badge.navy { background: #e3eaf6; color: #1e3c72; }
   .faq {
     background: #fff; border-radius: 16px; padding: 34px 34px;
     margin-top: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
   .faq-title { font-size: 26px; color: #1a2b4a; margin-bottom: 24px; text-align: center; font-weight: 800; }
-  .faq-item { padding: 18px 0; border-bottom: 1px solid #e8edf5; }
+ .faq-item { padding: 18px 0; border-bottom: 1px solid #e8edf5; }
   .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
   .faq-item h3 { font-size: 17px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
   .faq-item p { font-size: 15px; color: #55617a; line-height: 1.65; margin: 0; }
@@ -79,7 +85,7 @@
   .faq-item a:hover { text-decoration: underline; }
   .footer { text-align: center; color: #fff; opacity: 0.85; font-size: 13px; margin-top: 36px; line-height: 1.6; }
   .footer-links { text-align: center; margin-top: 16px; }
- .footer-links a {
+  .footer-links a {
     color: #fff; text-decoration: none; font-weight: 700; font-size: 14px;
     border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; transition: opacity 0.2s;
   }
@@ -91,10 +97,17 @@
 <div class="container">
   <div class="header">
     <h1>Free Mortgage & Home Cost Calculators</h1>
-    <p>Real numbers for real buyers. No sign-up, no spam — just tools that tell you the truth about what you can afford.</p>
+    <p>Real numbers for real buyers. No sign-up, no spam — just 10 tools that tell you the truth about what you can afford.</p>
   </div>
 
   <div class="cards">
+    <a href="affordability.html" class="card navy">
+      <span class="badge navy">🏡 START HERE</span>
+      <h2>Home Affordability Calculator</h2>
+      <p>Not sure where to start? Find out how much house you can afford based on your income, debts, and down payment — using the 43% DTI rule lenders actually apply.</p>
+      <span class="cta">Calculate my home budget →</span>
+    </a>
+
     <a href="self-employed.html" class="card">
       <span class="badge">POPULAR</span>
       <h2>Self-Employed Mortgage Calculator</h2>
@@ -116,13 +129,6 @@
       <span class="cta">Calculate my closing costs →</span>
     </a>
 
-    <a href="rent-vs-buy.html" class="card dark">
-      <span class="badge dark">🏠 RENT OR BUY?</span>
-      <h2>Rent vs Buy Calculator</h2>
-      <p>Buying isn't always cheaper. See how many years it takes for owning a home to pay off compared to renting.</p>
-      <span class="cta">Compare rent vs buy →</span>
-    </a>
-
     <a href="down-payment.html" class="card teal">
       <span class="badge teal">💰 SAVE SMARTER</span>
       <h2>Down Payment Calculator</h2>
@@ -130,11 +136,32 @@
       <span class="cta">Calculate my timeline →</span>
     </a>
 
+    <a href="property-tax.html" class="card crimson">
+      <span class="badge crimson">🏠 STATE BY STATE</span>
+      <h2>Property Tax Calculator</h2>
+      <p>See how much you'll pay in property taxes every year — and what it adds to your monthly payment. Compare rates across all 50 states.</p>
+      <span class="cta">Estimate my property tax →</span>
+    </a>
+
+    <a href="rent-vs-buy.html" class="card dark">
+      <span class="badge dark">🏠 RENT OR BUY?</span>
+      <h2>Rent vs Buy Calculator</h2>
+      <p>Buying isn't always cheaper. See how many years it takes for owning a home to pay off compared to renting.</p>
+      <span class="cta">Compare rent vs buy →</span>
+    </a>
+
     <a href="refinance.html" class="card plum">
       <span class="badge plum">🔄 LOWER YOUR PAYMENT?</span>
       <h2>Refinance Calculator</h2>
       <p>Is it worth refinancing? See how much you'd save each month, and how long until the refinance pays for itself.</p>
       <span class="cta">Should I refinance? →</span>
+    </a>
+
+    <a href="mortgage-payoff.html" class="card">
+      <span class="badge">⚡ PAY OFF FASTER</span>
+      <h2>Mortgage Payoff Calculator</h2>
+      <p>See how much time and interest you save by paying a little extra each month. Even $100/month makes a big difference.</p>
+      <span class="cta">Calculate my payoff →</span>
     </a>
 
     <a href="thin-credit.html" class="card green">
@@ -149,43 +176,58 @@
     <h2 class="faq-title">Frequently Asked Questions</h2>
 
     <div class="faq-item">
+      <h3>Where should I start?</h3>
+      <p>Start with our <a href="affordability.html">Home Affordability Calculator</a>. It shows you the price range you can realistically afford based on your income and debts. Then explore other calculators to fine-tune your plan.</p>
+    </div>
+
+    <div class="faq-item">
       <h3>Can self-employed people get a mortgage?</h3>
-      <p>Yes. Lenders work with freelancers, business owners, and gig workers every day. The catch is that they calculate your income differently — usually using a 2-year average from your tax returns, not your current monthly earnings.</p>
+      <p>Yes. Lenders work with freelancers, business owners, and gig workers every day. The catch is that they calculate your income differently — usually using a 2-year average from your tax returns. Our <a href="self-employed.html">Self-Employed Calculator</a> does this math for you.</p>
     </div>
 
     <div class="faq-item">
       <h3>How is my income calculated for a mortgage?</h3>
-      <p>Most lenders take your adjusted gross income from the last two tax returns, average it, and divide by 12. If your income grew, they may use the lower year to be safe. Our <a href="self-employed.html">Self-Employed Calculator</a> does this math for you.</p>
+      <p>Most lenders take your adjusted gross income from the last two tax returns, average it, and divide by 12. If your income grew, they may use the lower year to be safe.</p>
     </div>
 
     <div class="faq-item">
-      <h3>What are the hidden costs of buying a home?</h long3>
-     <p>Property taxes, you homeowners insurance, HOA fees, and PM planI can add hundreds of dollars to your monthly payment. Our <a href="hidden-costs.html">True Monthly Payment Calculator</a> shows the full picture — not just principal and interest.</p>
+      <h3>What are the hidden costs of buying a home?</h3>
+      <p>Property taxes, homeowners insurance, HOA fees, and PMI can add hundreds of dollars to your monthly payment. Our <a href="hidden-costs.html">True Monthly Payment Calculator</a> shows the full picture.</p>
     </div>
 
     <div class="faq-item">
       <h3>What are closing costs and how much are they?</h3>
-      <p>Closing costs are extra fees due when you finalize a home purchase — usually 2–5% of the home price. They include loan origination, appraisal, title insurance, attorney fees, and prepaid taxes. Our <a href="closing-costs.html">Closing Costs Calculator</a> breaks down every fee.</p>
+      <p>Closing costs are extra fees due when you finalize a home purchase — usually 2–5% of the home price. Our <a href="closing-costs.html">Closing Costs Calculator</a> breaks down every fee.</p>
     </div>
 
     <div class="faq-item">
       <h3>Is it cheaper to rent or buy?</h3>
-      <p>It depends on your market, how to stay, and how much you put down. Our <a href="rent-vs-buy.html">Rent vs Buy Calculator</a> shows the true monthly cost of owning — including maintenance and taxes — and compares it to your rent.</p>
+      <p>It depends on your market, how long you plan to stay, and how much you put down. Our <a href="rent-vs-buy.html">Rent vs Buy Calculator</a> shows the true monthly cost of owning — including maintenance and taxes.</p>
     </div>
 
     <div class="faq-item">
       <h3>How much should I put down on a house?</h3>
-      <p>20% avoids PMI (private mortgage insurance) and gets you better rates. But FHA loans allow as little as 3.5%. Our <a href="down-payment.html">Down Payment Calculator</a> shows how long it takes to save and how much PMI you'd avoid.</p>
+      <p>20% avoids PMI and gets you better rates. But FHA loans allow as little as 3.5%. Our <a href="down-payment.html">Down Payment Calculator</a> shows how long it takes to save.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How much are property taxes?</h3>
+      <p>Property tax rates range from 0.28% (Hawaii) to 1.85% (New Jersey) of your home's value per year. Our <a href="property-tax.html">Property Tax Calculator</a> shows the rate for your state.</p>
     </div>
 
     <div class="faq-item">
       <h3>When should I refinance my mortgage?</h3>
-      <p>Usually when you can lower your rate enough to save more than the closing costs within the time you plan to stay. Our <a href="refinance.html">Refinance Calculator</a> shows your monthly savings and the break-even point.</p>
+      <p>Usually when you can lower your rate enough to save more than the closing costs within the time you plan to stay. Our <a href="refinance.html">Refinance Calculator</a> shows your break-even point.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I pay off my mortgage faster?</h3>
+      <p>Even small extra payments make a huge difference. Our <a href="mortgage-payoff.html">Mortgage Payoff Calculator</a> shows how much time and interest you save with extra monthly payments.</p>
     </div>
 
     <div class="faq-item">
       <h3>Can I get a mortgage with a low credit score?</h3>
-      <p>Yes. FHA loans allow scores as low as 580 with 3.5% down. If your score is lower or you have no credit history, there are still options. Check our <a href="thin-credit.html">Thin Credit Calculator</a> to see what fits your situation.</p>
+      <p>Yes. FHA loans allow scores as low as 580 with 3.5% down. Check our <a href="thin-credit.html">Thin Credit Calculator</a> to see what fits your situation.</p>
     </div>
   </div>
 
@@ -199,16 +241,6 @@
   </p>
 </div>
 
- <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/my-calculator/sw.js');
-  }
-</script>
-<div id="installBanner" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1a2b4a; color:#fff; padding:14px 22px; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4); font-family:'Segoe UI',Arial,sans-serif; font-size:14px; z-index:1000; align-items:center; gap:14px;">
-  <span>📱 Install this app on your device</span>
-  <button id="installBtn" style="background:#3b6fe0; color:#fff; border:none; padding:8px 16px; border-radius:8px; font-weight:bold; cursor:pointer; font-size:14px;">Install</button>
-  <button id="dismissBtn" style="background:transparent; color:#8a96ab; border:none; cursor:pointer; font-size:20px; line-height:1;">×</button>
-</div>
 <script>
   let deferredPrompt;
   const banner = document.getElementById('installBanner');
@@ -218,23 +250,34 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (!localStorage.getItem('installDismissed')) {
+    if (banner && !localStorage.getItem('installDismissed')) {
       banner.style.display = 'flex';
     }
   });
 
-  installBtn.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    banner.style.display = 'none';
-  });
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      banner.style.display = 'none';
+    });
+  }
 
-  dismissBtn.addEventListener('click', () => {
-    banner.style.display = 'none';
-    localStorage.setItem('installDismissed', 'true');
-  });
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      localStorage.setItem('installDismissed', 'true');
+    });
+  }
 </script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-calculator/sw.js');
+  }
+</script>
+
 </body>
 </html>
