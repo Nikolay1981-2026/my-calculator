@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
- <link rel="manifest" href="manifest.json">
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Closing Costs Calculator — How Much Extra Will You Pay?</title>
-<meta name="description" content="Calculate the closing costs on your home purchase. See all the fees most buyers forget about — appraisal, title insurance, attorney, taxes, and more.">
+<title>Closing Costs Calculator 2026 — Estimate Your Fees (Free)</title>
+<meta name="description" content="Free closing costs calculator for 2026. Estimate loan origination, appraisal, title insurance, attorney fees, prepaid taxes, and HOA. See your real total in seconds.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -71,16 +71,17 @@
     margin-bottom: 6px;
     font-weight: normal;
   }
-  input {
+  input, select {
     width: 100%;
     padding: 13px 15px;
     font-size: 16px;
     border: 2px solid #e0e6ef;
     border-radius: 10px;
     margin-bottom: 20px;
+    background: #fff;
     transition: border 0.2s;
   }
-  input:focus {
+  input:focus, select:focus {
     outline: none;
     border-color: #7b4397;
   }
@@ -141,10 +142,44 @@
     text-align: center;
     line-height: 1.6;
   }
+  .faq {
+    background: #faf7fc;
+    border-radius: 16px;
+    padding: 30px 28px;
+    margin-top: 32px;
+    border: 2px solid #eadcf2;
+  }
+  .faq-title {
+    font-size: 22px;
+    color: #1a2b4a;
+    margin-bottom: 20px;
+    text-align: center;
+   font-weight: 800;
+  }
+  .faq-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #eadcf2;
+  }
+  .faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .faq-item h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: #55617a;
+    line-height: 1.65;
+    margin: 0;
+  }
   .back-link {
     display: block;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 24px;
     font-size: 14px;
     color: #7b4397;
     text-decoration: none;
@@ -208,6 +243,40 @@
     <div class="percent" id="percent"></div>
   </div>
 
+  <div class="faq">
+    <h2 class="faq-title">Closing Costs — FAQ</h2>
+
+    <div class="faq-item">
+      <h3>What exactly are closing costs?</h3>
+      <p>Closing costs are all the fees you pay when you finalize a home purchase. They include the loan origination fee, appraisal, title search and title insurance, attorney fees, recording fees, prepaid property taxes and homeowners insurance, and HOA transfer fees. They are separate from your down payment.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How much are closing costs in 2026?</h3>
+      <p>Most buyers pay 2% to 5% of the home price in closing costs. On a $400,000 home, that is $8,000 to $20,000. The exact amount depends on your state, lender, loan type, and whether you buy points.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Who pays closing costs — buyer or seller?</h3>
+      <p>Typically the buyer pays most closing costs, but the seller pays the real estate agent commissions and sometimes a portion of the buyer's costs. In a slow market, buyers can negotiate for the seller to cover some or all closing costs.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can closing costs be rolled into the loan?</h3>
+      <p>Sometimes. With certain loan programs (like FHA or VA), you can finance some closing costs into the loan. But this increases your loan balance and total interest paid. Ask your lender for options.</p>
+    </div>
+
+    <div class="faq-item">
+     <h3>Which states have the highest closing costs?</h3>
+      <p>High-cost states like New York, California, and Washington tend to have higher closing costs because of attorney fees, title insurance rates, and local taxes. Low-cost states like Nevada, Arizona, and Texas have lower average fees.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I reduce my closing costs?</h3>
+      <p>Several ways: negotiate the origination fee with your lender, shop around for title insurance, ask the seller to cover a portion, close near the end of the month to reduce prepaid interest, and avoid buying discount points unless you plan to stay long-term.</p>
+    </div>
+  </div>
+
   <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual closing costs vary widely by state, lender, and property. Always request a Loan Estimate from your lender for exact numbers.</p>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
@@ -257,5 +326,6 @@ function calculate() {
     navigator.serviceWorker.register('/my-calculator/sw.js');
   }
 </script>
+
 </body>
 </html>
