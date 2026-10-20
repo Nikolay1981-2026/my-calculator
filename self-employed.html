@@ -13,7 +13,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Self-Employed Mortgage Calculator 2026 — How Much Can You Borrow?</title>
-<meta name="description" content="Free self-employed mortgage calculator for 2026. See how much you can borrow using your 2-year average income — the way lenders actually calculate it for freelancers.">
+<meta name="description" content="Free self-employed mortgage calculator for 2026. See how much you can borrow using your 2-year average income. Includes document checklist and bank statement loans.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,183 +33,48 @@
     max-width: 620px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #e8f0ff;
-    color: #3b6fe0;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #e8f0ff; color: #3b6fe0; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #3b6fe0;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #3b6fe0, #5b3be0);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59,111,224,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #f7faff;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #e0e9ff;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; transition: border 0.2s; }
+  input:focus { outline: none; border-color: #3b6fe0; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #3b6fe0, #5b3be0); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,111,224,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #f7faff; border-radius: 14px; display: none; border: 2px solid #e0e9ff; }
   .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
-  .result-row.total {
-    border-top: 2px solid #d0e2ff;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 20px;
-    font-weight: bold;
-  }
+  .result-row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 15px; color: #1a2b4a; }
+  .result-row.total { border-top: 2px solid #d0e2ff; margin-top: 10px; padding-top: 16px; font-size: 20px; font-weight: bold; }
   .result-row.total span:last-child { color: #3b6fe0; }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .faq {
-    background: #f7faff;
-    border-radius: 16px;
-    padding: 30px 28px;
-    margin-top: 32px;
-    border: 2px solid #e0e9ff;
-  }
-  .faq-title {
-    font-size: 22px;
-    color: #1a2b4a;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 800;
-  }
-  .faq-item {
-    padding: 16px 0;
-    border-bottom: 1px solid #e0e9ff;
-  }
-  .faq-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .faq-item h3 {
-    font-size: 16px;
-    color: #1a2b4a;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-  .faq-item p {
-    font-size: 14px;
-    color: #55617a;
-    line-height: 1.65;
-    margin: 0;
-  }
-  .related {
-    background: #fff;
-    border-radius: 14px;
-    padding: 24px 26px;
-    margin-top: 28px;
-    border: 2px dashed #b8c8ee;
-  }
-  .related h3 {
-    font-size: 16px;
-    color: #1a2b4a;
-    margin-bottom: 14px;
-    font-weight: 800;
-  }
-  .related ul {
-    list-style: none;
-    padding: 0;
-  }
-  .related li {
-    font-size: 14px;
-    color: #55617a;
-    line-height: 1.6;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e9ff;
-  }
-  .related li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .related a {
-    color: #3b6fe0;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .related a:hover {
-    text-decoration: underline;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 24px;
-    font-size: 14px;
-    color: #3b6fe0;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+  .seo-content strong { color: #1a2b4a; }
+
+  .faq { background: #f7faff; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #e0e9ff; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #e0e9ff; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #b8c8ee; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #e0e9ff; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #3b6fe0; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #3b6fe0; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -254,6 +119,27 @@
     </div>
   </div>
 
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>How to Get a Mortgage When You're Self-Employed</h2>
+    <p>Getting a mortgage as a freelancer, business owner, or gig worker is entirely possible. In fact, self-employed borrowers make up a massive portion of the US housing market. However, because your income isn't reported on a simple W-2, lenders have to look at your finances differently.</p>
+    
+    <h3>The Document Checklist</h3>
+    <p>When you apply for a self-employed mortgage, the lender will ask for a specific paper trail to prove your income is stable. Expect to provide:</p>
+    <ul>
+      <li><strong>Two years of personal tax returns</strong> (Form 1040). Lenders look at your Adjusted Gross Income (AGI).</li>
+      <li><strong>Two years of business tax returns</strong> (if you are an LLC, S-Corp, or partnership).</li>
+      <li><strong>A Year-to-Date Profit & Loss (P&L) statement</strong> prepared by you or your accountant.</li>
+      <li><strong>Proof of business ownership</strong> (business license, CPA letter, or Articles of Organization).</li>
+    </ul>
+
+    <h3>What is a Bank Statement Loan?</h3>
+    <p>If your tax returns show a lot of write-offs (which lowers your AGI and makes it hard to qualify for a large loan), you might need a <strong>Bank Statement Loan</strong>. Instead of tax returns, the lender looks at 12 to 24 months of your personal or business bank statements to calculate your average monthly deposits. These loans usually require a higher down payment and have slightly higher interest rates, but they are a lifesaver for freelancers with heavy deductions.</p>
+
+    <h3>How the 2-Year Average Works</h3>
+    <p>Most lenders will take your net income from Year 1 and Year 2, add them together, and divide by 24 to get your qualifying monthly income. If your income went up significantly in Year 2, some lenders will still only use Year 1's lower number to be safe. If you want to maximize your borrowing power, keeping your tax returns clean for two years before applying is the best strategy.</p>
+  </div>
+
   <div class="related">
     <h3>Related calculators</h3>
     <ul>
@@ -265,35 +151,17 @@
 
   <div class="faq">
     <h2 class="faq-title">Self-Employed Mortgage — FAQ</h2>
-
     <div class="faq-item">
       <h3>Can self-employed people get a mortgage in 2026?</h3>
-      <p>Yes. Lenders work with freelancers, business owners, gig workers, and independent contractors every day. The process is different from a W-2 employee, but self-employed borrowers are a large and growing part of the mortgage market.</p>
+      <p>Yes. Lenders work with freelancers, business owners, gig workers, and independent contractors every day. The process is different from a W-2 employee, but self-employed borrowers are a large part of the mortgage market.</p>
     </div>
-
     <div class="faq-item">
       <h3>How is self-employed income calculated for a mortgage?</h3>
       <p>Most lenders take your adjusted gross income from the last two tax returns, average it, and divide by 12. If your income grew, they may use the lower year to be conservative. Some lenders offer "bank statement loans" that use 12–24 months of deposits instead of tax returns.</p>
     </div>
-
-    <div class="faq-item">
-      <h3>What documents do I need as a self-employed borrower?</h3>
-      <p>Usually two years of personal tax returns, two years of business tax returns (if you have an LLC or S-Corp), a year-to-date profit-and-loss statement, and proof of business ownership. Having these ready speeds up approval.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How much can a freelancer borrow for a mortgage?</h3>
-      <p>It depends on your average income over two years and your debt-to-income ratio. Most lenders allow up to 43% DTI. Our calculator above shows your estimated borrowing power based on your specific numbers.</p>
-    </div>
-
     <div class="faq-item">
       <h3>Do self-employed borrowers pay higher interest rates?</h3>
       <p>Not necessarily. If your credit score is strong and your income documentation is solid, you can get the same rates as W-2 employees. Some niche loan programs (like bank statement loans) have slightly higher rates because they carry more risk for the lender.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>What if my income dropped last year?</h3>
-      <p>Lenders may use the lower of the two years, which reduces how much you can borrow. If your income dropped temporarily (for example, due to a one-time expense), you can explain it with a letter of explanation. Some lenders will consider the higher year in special cases.</p>
     </div>
   </div>
 
@@ -323,7 +191,6 @@ function calculate() {
   const totalBorrow = maxLoan + down;
 
   const fmt = (n) => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
-
   document.getElementById('qincome').textContent = fmt(avgMonthlyIncome) + ' / mo';
   document.getElementById('maxpay').textContent = fmt(maxMonthlyPayment) + ' / mo';
   document.getElementById('borrow').textContent = fmt(totalBorrow);
