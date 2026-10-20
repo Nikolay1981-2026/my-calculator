@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage Payoff Calculator — How Fast Can You Pay Off Your Home?</title>
-<meta name="description" content="See how much faster you can pay off your mortgage with extra monthly or yearly payments. Calculate your interest savings and new payoff date.">
+<title>Mortgage Payoff Calculator 2026 — How Fast Can You Pay Off Your Home?</title>
+<meta name="description" content="See how much faster you can pay off your mortgage with extra monthly or yearly payments. Includes examples for $70,000 loans and interest savings.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,131 +33,51 @@
     max-width: 620px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #ede7f6;
-    color: #4b2a72;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #ede7f6; color: #4b2a72; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #4b2a72;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #4b2a72, #1e3c72);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(75,42,114,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #faf7fc;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #eadcf2;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; transition: border 0.2s; }
+  input:focus { outline: none; border-color: #4b2a72; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #4b2a72, #1e3c72); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(75,42,114,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #faf7fc; border-radius: 14px; display: none; border: 2px solid #eadcf2; }
   .result.show { display: block; }
-  .result h3 {
-    font-size: 16px;
-    color: #1a2b4a;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #eadcf2;
-  }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
-  .result-row.total {
-    border-top: 2px solid #eadcf2;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 19px;
-    font-weight: bold;
-  }
+  .result h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #eadcf2; }
+  .result-row { display: flex; justify-content: space-between; padding: 9px 0; font-size: 15px; color: #1a2b4a; }
+  .result-row.total { border-top: 2px solid #eadcf2; margin-top: 10px; padding-top: 16px; font-size: 19px; font-weight: bold; }
   .result-row.total span:last-child { color: #4b2a72; }
   .result-row.saved { color: #2e7d32; font-weight: bold; }
-  .tip {
-    background: #ede7f6;
-    border-left: 4px solid #4b2a72;
-    padding: 14px;
-    border-radius: 6px;
-    margin-top: 16px;
-    font-size: 14px;
-    color: #4b2a72;
-    line-height: 1.6;
-  }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #4b2a72;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .tip { background: #ede7f6; border-left: 4px solid #4b2a72; padding: 14px; border-radius: 6px; margin-top: 16px; font-size: 14px; color: #4b2a72; line-height: 1.6; }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+  .seo-content strong { color: #1a2b4a; }
+
+  .faq { background: #faf7fc; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #eadcf2; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #eadcf2; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #d4c4e0; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #eadcf2; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #4b2a72; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #4b2a72; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -212,6 +132,51 @@
       <span id="interestSaved">—</span>
     </div>
     <div class="tip" id="tip"></div>
+  </div>
+
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>How to Pay Off Your Mortgage Faster</h2>
+    <p>Paying off your mortgage early is one of the best ways to secure your financial future. Even a small extra payment each month can shave years off your loan and save you tens of thousands of dollars in interest.</p>
+    
+    <h3>Example: Paying off a $70,000 Mortgage</h3>
+    <p>Let's say you have a <strong>$70,000 balance</strong> at a <strong>6.5% interest rate</strong> with 15 years left. Your base monthly payment would be around $610. Over the life of the loan, you would pay roughly $39,700 in interest alone.</p>
+    <p>If you add just <strong>$100 extra per month</strong> (paying $710 total), you would pay off the loan nearly 3 years earlier and save over $8,000 in interest. If you can afford $200 extra, you'd save even more.</p>
+
+    <h3>Bi-Weekly Payments vs. Extra Monthly Payments</h3>
+    <p>There are two main ways to accelerate your payoff:</p>
+    <ul>
+      <li><strong>Extra Monthly Payments:</strong> This is the simplest method. You just add a fixed amount (e.g., $100 or $200) to your regular payment and instruct the lender to apply it to the principal.</li>
+      <li><strong>Bi-Weekly Payments:</strong> Instead of paying once a month, you pay half your mortgage payment every two weeks. Since there are 52 weeks in a year, this results in 26 half-payments, which equals 13 full payments. You essentially make one extra full payment per year without feeling the pinch.</li>
+    </ul>
+
+    <h3>Should You Pay Off Your Mortgage or Invest?</h3>
+    <p>This is a common debate. Paying off a 6.5% mortgage gives you a guaranteed 6.5% return on your money (since you avoid paying that interest). However, if you can earn 8-10% in the stock market, investing might mathematically be a better choice. From a psychological standpoint, though, many people prefer the peace of mind of owning their home outright.</p>
+  </div>
+
+  <div class="related">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="refinance.html">Refinance Calculator</a> — see if you can lower your monthly payment</li>
+      <li><a href="self-employed.html">Self-Employed Mortgage Calculator</a> — how much can you borrow?</li>
+      <li><a href="affordability.html">Home Affordability Calculator</a> — how much house fits your budget</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Mortgage Payoff — FAQ</h2>
+    <div class="faq-item">
+      <h3>Do extra payments go to principal?</h3>
+      <p>Yes, but only if you specify it. When you make an extra payment, always tell your lender to apply it directly to the principal balance, not to next month's interest.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there prepayment penalties?</h3>
+      <p>Most modern mortgages (especially conventional and FHA loans) do not have prepayment penalties. However, it's always best to check your loan documents before making large lump-sum payments.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I pay off my mortgage in a lump sum?</h3>
+      <p>Yes. If you receive a windfall (inheritance, bonus, sale of another property), you can often pay off the entire remaining balance. You'll just need to request a "payoff statement" from your lender.</p>
+    </div>
   </div>
 
   <p class="note">This calculator provides an estimate for educational purposes only. It is not financial advice. Actual savings depend on your lender, loan terms, and payment schedule. Check with your lender before making extra payments.</p>
