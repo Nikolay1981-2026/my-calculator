@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
- <link rel="manifest" href="manifest.json">
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refinance Calculator — Is It Worth Refinancing Your Mortgage?</title>
-<meta name="description" content="Find out if refinancing your mortgage is worth it. See your new payment, monthly savings, break-even point, and total lifetime savings.">
+<title>Refinance Calculator 2026 — Is It Worth Refinancing Your Mortgage?</title>
+<meta name="description" content="Find out if refinancing is worth it in 2026. Calculate your new monthly payment, break-even point, and total lifetime savings.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,124 +33,48 @@
     max-width: 620px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #f0e6f3;
-    color: #42275a;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #f0e6f3; color: #42275a; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #734b6d;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #734b6d, #42275a);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(115,75,109,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #faf6fb;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #eadcf2;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; transition: border 0.2s; }
+  input:focus { outline: none; border-color: #734b6d; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #734b6d, #42275a); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(115,75,109,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #faf6fb; border-radius: 14px; display: none; border: 2px solid #eadcf2; }
   .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
-  .result-row.total {
-    border-top: 2px solid #eadcf2;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 19px;
-    font-weight: bold;
-  }
+  .result-row { display: flex; justify-content: space-between; padding: 9px 0; font-size: 15px; color: #1a2b4a; }
+  .result-row.total { border-top: 2px solid #eadcf2; margin-top: 10px; padding-top: 16px; font-size: 19px; font-weight: bold; }
   .result-row.total span:last-child { color: #734b6d; }
-  .verdict {
-    background: #f0e6f3;
-    border-left: 4px solid #734b6d;
-    padding: 16px;
-    border-radius: 6px;
-    margin-top: 16px;
-    font-size: 15px;
-    color: #42275a;
-    line-height: 1.6;
-    font-weight: 600;
-  }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #734b6d;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .verdict { background: #f0e6f3; border-left: 4px solid #734b6d; padding: 16px; border-radius: 6px; margin-top: 16px; font-size: 15px; color: #42275a; line-height: 1.6; font-weight: 600; }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+  .seo-content strong { color: #1a2b4a; }
+ .faq { background: #faf6fb; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #eadcf2; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #eadcf2; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #d4c4e0; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #eadcf2; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #734b6d; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #734b6d; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -198,6 +122,52 @@
     <div class="verdict" id="verdict"></div>
   </div>
 
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>Is Refinancing Worth It in 2026?</h2>
+    <p>Refinancing your mortgage means replacing your current loan with a new one, usually to get a lower interest rate, change the loan term, or access home equity. But it's not free — closing costs usually run 2% to 5% of the loan balance. So how do you know if it's worth it?</p>
+    
+    <h3>The Break-Even Rule</h3>
+    <p>The most important number in refinancing is the <strong>break-even point</strong>. This is how many months it takes for your monthly savings to cover the cost of the refinance.</p>
+    <p><strong>Example:</strong> If refinancing saves you $150 per month and costs $6,000, your break-even point is 40 months (about 3.3 years). If you plan to stay in the home longer than that, refinancing makes sense. If you plan to move in 2 years, you would lose money.</p>
+
+    <h3>When Should You Refinance?</h3>
+    <ul>
+     <li><strong>Rates have dropped:</strong> A common rule of thumb is to refinance if you can lower your rate by at least 0.75% to 1%.</li>
+      <li><strong>You want to drop PMI:</strong> If your home value has increased and you now have 20% equity, refinancing can remove Private Mortgage Insurance.</li>
+      <li><strong>You want to shorten your term:</strong> Refinancing from a 30-year to a 15-year loan will increase your monthly payment but save you tens of thousands in interest.</li>
+      <li><strong>You need cash:</strong> A cash-out refinance lets you borrow against your home equity, often at a lower rate than a personal loan.</li>
+    </ul>
+
+    <h3>What Are the Costs?</h3>
+    <p>Just like a purchase mortgage, a refinance comes with closing costs. These include application fees, loan origination fees, appraisal fees, title search and insurance, and recording fees. Always ask your lender for a Loan Estimate to see the exact costs before you commit.</p>
+  </div>
+
+  <div class="related">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="mortgage-payoff.html">Mortgage Payoff Calculator</a> — how fast can you pay off your home?</li>
+      <li><a href="self-employed.html">Self-Employed Mortgage Calculator</a> — how much can you borrow?</li>
+      <li><a href="affordability.html">Home Affordability Calculator</a> — how much house fits your budget?</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Refinance — FAQ</h2>
+    <div class="faq-item">
+      <h3>How much does it cost to refinance?</h3>
+      <p>Typically 2% to 5% of the loan balance. On a $300,000 mortgage, that's $6,000 to $15,000. Some lenders offer "no-closing-cost" refinances, but they usually charge a higher interest rate to make up for it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long does a refinance take?</h3>
+      <p>Usually 30 to 45 days from application to closing. It can take longer if there are issues with the appraisal or title search.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I refinance with bad credit?</h3>
+      <p>It's harder, but yes. FHA and VA loans have more flexible credit requirements. However, you'll likely pay a higher interest rate than someone with excellent credit.</p>
+    </div>
+  </div>
+
   <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual refinance terms depend on your lender, credit profile, home equity, and full financial picture. Always request a Loan Estimate from your lender.</p>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
@@ -231,7 +201,7 @@ function calculate() {
 
   document.getElementById('oldPay').textContent = fmt(oldPayment) + ' / mo';
   document.getElementById('newPay').textContent = fmt(newPayment) + ' / mo';
-  document.getElementById('savings').textContent = (savings > 0 ? '' : '−') + fmt(savings) + ' / mo';
+ document.getElementById('savings').textContent = (savings > 0 ? '' : '−') + fmt(savings) + ' / mo';
 
   let verdictText = '';
 
@@ -253,5 +223,6 @@ function calculate() {
     navigator.serviceWorker.register('/my-calculator/sw.js');
   }
 </script>
+
 </body>
 </html>
