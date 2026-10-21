@@ -30,33 +30,19 @@
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     padding: 40px;
-    max-width: 800px; /* Увеличили ширину для SEO-контента */
+    max-width: 600px;
     width: 100%;
   }
   h1 {
-    font-size: 28px;
+    font-size: 26px;
     color: #1a2b4a;
     margin-bottom: 10px;
     text-align: center;
     line-height: 1.3;
   }
-  h2 {
-    font-size: 22px;
-    color: #1a2b4a;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #e8f5e9;
-    padding-bottom: 8px;
-  }
-  h3 {
-    font-size: 18px;
-    color: #2e7d32;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
   .subtitle {
     color: #6b7a99;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
     margin-bottom: 30px;
     line-height: 1.5;
@@ -127,7 +113,6 @@
   .result h3 {
     font-size: 16px;
     color: #1a2b4a;
-    margin-top: 0;
     margin-bottom: 16px;
     padding-bottom: 12px;
     border-bottom: 2px solid #e0e9ff;
@@ -154,7 +139,7 @@
     border-radius: 6px;
     margin-top: 16px;
     font-size: 14px;
-   color: #1b5e20;
+    color: #1b5e20;
     line-height: 1.55;
   }
   .note {
@@ -171,24 +156,50 @@
     font-size: 14px;
     color: #2e7d32;
     text-decoration: none;
-    font-weight: 600;
+   font-weight: 600;
   }
   .back-link:hover { text-decoration: underline; }
-  
-  /* Стили для SEO-контента */
-  .seo-content {
+
+  /* --- Стили SEO-контента в стиле страницы Affordability --- */
+  .seo-section {
     margin-top: 40px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #333;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
   }
-  .seo-content p { margin-bottom: 15px; }
-  .seo-content ul { margin-left: 20px; margin-bottom: 20px; }
-  .seo-content li { margin-bottom: 8px; }
+  .seo-section h2 {
+    font-size: 20px;
+    color: #1a2b4a;
+    margin-bottom: 15px;
+  }
+  .seo-section h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  .seo-section p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .seo-section ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+  }
+  .seo-section li {
+    margin-bottom: 8px;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
     font-size: 14px;
   }
   th, td {
@@ -201,15 +212,65 @@
     color: #1a2b4a;
     font-weight: 600;
   }
+  .related-box {
+    background: #f9fbfc;
+    border: 2px dashed #b0d4c8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px 0;
+  }
+  .related-box h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .related-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .related-box li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .related-box a {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .related-box a:hover { text-decoration: underline; }
+  .related-box span {
+    color: #6b7a99;
+  }
+  .faq-box {
+    background: #f9fbfc;
+    border: 1px solid #e0e6ef;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+  }
+  .faq-box h3 {
+    font-size: 18px;
+    color: #1a2b4a;
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .faq-item {
     margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e0e6ef;
   }
-  .faq-question {
-    font-weight: bold;
+  .faq-item strong {
+    display: block;
+    font-size: 14px;
     color: #1a2b4a;
     margin-bottom: 5px;
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: #6b7a99;
+    line-height: 1.5;
+    margin-bottom: 15px;
   }
 </style>
 </head>
@@ -266,89 +327,82 @@
 
   <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual rates, terms, and loan approvals depend on your lender, credit profile, income documentation, location, and full financial picture. Always confirm your numbers with a licensed mortgage professional before making any decision.</p>
 
-  <!-- НАЧАЛО SEO-ТЕКСТА -->
-  <div class="seo-content">
-    <h2>What Does "Thin Credit" Mean for a Mortgage?</h2>
-    <p>A "thin credit file" means you have very little or no credit history. This is common for young adults, recent immigrants, or people who have always paid in cash. Lenders use your credit score to predict how likely you are to repay a loan. If you don't have a score, they can't use this tool, which makes you look riskier to them on paper.</p>
-    <p>However, a thin credit file is not the same as <em>bad</em> credit. Bad credit means you have a history of missed payments. A thin file just means you haven't borrowed enough to build a history. Many lenders have specific programs designed for this situation.</p>
+  <!-- SEO КОНТЕНТ -->
+  <div class="seo-section">
+    <h2>What Does "Thin Credit" Mean?</h2>
+    <p>A thin credit file means you have little to no credit history. This is common for young adults, recent immigrants, or people who pay for everything in cash. Lenders use credit scores to predict risk, so a blank slate can make it harder to get approved.</p>
+    <p>But thin credit is not the same as <em>bad</em> credit. There are specific loan programs designed to help you buy a home while you build your history.</p>
 
-    <h2>How to Get a Mortgage with Thin or Bad Credit</h2>
-    <p>If you have a low score or no score at all, you have several paths to homeownership:</p>
+    <h3>Your Options with Thin or Bad Credit</h3>
     <ul>
-      <li><strong>FHA Loans:</strong> Backed by the Federal Housing Administration, these loans are more forgiving. They allow down payments as low as 3.5% and credit scores as low as 580.</li>
-      <li><strong>Alternative Credit:</strong> FHA lenders can consider non-traditional credit, such as rent payments, utility bills, and phone bills, if you can prove a 12-month history of on-time payments.</li>
-      <li><strong>Co-Signer:</strong> Adding a co-signer with good credit can significantly improve your chances of approval and lower your interest rate.</li>
-      <li><strong>Non-QM Loans:</strong> Non-Qualified Mortgage loans (like bank statement loans) use alternative income verification and may be more flexible with credit history.</li>
+      <li><strong>FHA Loans:</strong> The most popular choice. They allow scores as low as 580 (with 3.5% down) and accept "alternative credit" like rent or utility bills.</li>
+      <li><strong>Co-Signers:</strong> Adding someone with good credit can boost your approval chances and lower your rate.</li>
+      <li><strong>Non-QM Loans:</strong> Non-Qualified Mortgages offer flexible underwriting but usually require larger down payments.</li>
     </ul>
 
-    <h2>Comparison of Loan Options for Thin Credit</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Loan Type</th>
-          <th>Min. Credit Score</th>
-          <th>Min. Down Payment</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>FHA Loan</strong></td>
-          <td>580 (3.5% down)<br>500 (10% down)</td>
-          <td>3.5%</td>
-          <td>Buyers with low scores or thin files</td>
-        </tr>
-        <tr>
-          <td><strong>Conventional (Fannie/Freddie)</strong></td>
-          <td>620 (often higher)</td>
-          <td>3% - 5%</td>
-          <td>Buyers with fair to good credit</td>
-        </tr>
-        <tr>
-          <td><strong>USDA Loan</strong></td>
-          <td>640 (lender-dependent)</td>
-          <td>0%</td>
-          <td>Rural homebuyers with stable income</td>
-        </tr>
-        <tr>
-          <td><strong>VA Loan</strong></td>
-          <td>Varies (often 580+)</td>
-          <td>0%</td>
-          <td>Veterans and active military</td>
-        </tr>
-        <tr>
-          <td><strong>Non-QM / Hard Money</strong></td>
-          <td>None - Flexible</td>
-          <td>10% - 25%</td>
-          <td>Investors or buyers with unique situations</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>5 Tips to Improve Your Chances Right Now</h2>
-    <ol>
-      <li><strong>Get Pre-Approved First:</strong> Don't guess what you can afford. A pre-approval letter from a lender will tell you exactly what programs you qualify for.</li>
-      <li><strong>Increase Your Down Payment:</strong> If you can put down 10% or 20% instead of the minimum 3.5%, lenders will overlook a lower credit score much more easily.</li>
-      <li><strong>Lower Your Debt-to-Income (DTI) Ratio:</strong> Pay off credit card balances and avoid taking on new debt before applying. A lower DTI can offset a poor credit score.</li>
-      <li><strong>Build Alternative Credit:</strong> Ask your landlord for proof of on-time rent payments. Get a letter from utility companies. Some lenders accept these as credit references.</li>
-      <li><strong>Talk to a HUD-Approved Counselor:</strong> This is a free service. They can review your finances, help you create a plan, and connect you with lenders who specialize in your situation.</li>
-    </ol>
-
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-question">Can I get a mortgage with no credit score?</div>
-      <p>Yes. FHA loans allow lenders to use "alternative credit" — a history of paying rent, utilities, or insurance on time. You will likely need a larger down payment and will pay a higher interest rate.</p>
-    </div>
-    <div class="faq-item">
-     <div class="faq-question">How long does it take to fix bad credit for a mortgage?</div>
-      <p>It depends on the severity of the issues, but generally, you can see significant improvement in 6 to 12 months by paying all bills on time, reducing credit card balances, and disputing errors on your credit report.</p>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">What is the lowest credit score for a mortgage?</div>
-      <p>FHA loans allow scores as low as 500 (with a 10% down payment). However, most lenders have "overlays" requiring a minimum score of 580 or 620. It is best to shop around with multiple lenders.</p>
+    <h3>Loan Comparison</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Loan Type</th>
+            <th>Min. Score</th>
+            <th>Min. Down</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FHA Loan</strong></td>
+            <td>580</td>
+            <td>3.5%</td>
+          </tr>
+          <tr>
+            <td><strong>Conventional</strong></td>
+            <td>620</td>
+            <td>3% - 5%</td>
+          </tr>
+          <tr>
+            <td><strong>USDA Loan</strong></td>
+            <td>640</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <td><strong>VA Loan</strong></td>
+            <td>580+</td>
+            <td>0%</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <!-- КОНЕЦ SEO-ТЕКСТА -->
+
+  <!-- ПЕРЕЛИНКОВКА -->
+  <div class="related-box">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="down-payment.html">Down Payment Calculator</a> <span>— see how much you need to save</span></li>
+      <li><a href="closing-costs.html">Closing Costs Calculator</a> <span>— don't forget the extra fees</span></li>
+      <li><a href="self-employed.html">Self-Employed Mortgage Calculator</a> <span>— options for freelancers</span></li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-box">
+    <h3>Thin Credit — FAQ</h3>
+    
+    <div class="faq-item">
+      <strong>Can I get a mortgage with no credit score?</strong>
+      <p>Yes. FHA lenders can use alternative credit (rent, utilities, phone bills) if you have a 12-month history of on-time payments.</p>
+    </div>
+    <div class="faq-item">
+      <strong>How long does it take to build credit?</strong>
+      <p>You can usually establish a basic score in 6 months by opening a secured credit card or credit-builder loan and paying on time.</p>
+    </div>
+    <div class="faq-item">
+      <strong>Does a larger down payment help?</strong>
+      <p>Absolutely. Putting down 10% or 20% significantly lowers the lender's risk and can help you get approved despite a low score.</p>
+    </div>
+  </div>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
 </div>
@@ -359,8 +413,7 @@ function calculate() {
   const income = parseFloat(document.getElementById('income').value);
   const down = parseFloat(document.getElementById('down').value) || 0;
   const years = parseFloat(document.getElementById('years').value);
-
-  if (!income || !years || income <= 0 || years <= 0) {
+ if (!income || !years || income <= 0 || years <= 0) {
     alert('Please fill in income and loan term');
     return;
   }
