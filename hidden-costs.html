@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
- <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
- <link rel="manifest" href="manifest.json">
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Monthly Payment Calculator — See All Hidden Home Costs</title>
-<meta name="description" content="See the real cost of owning a home — including property tax, insurance, HOA fees, and PMI. Most calculators hide these costs.">
+<title>True Monthly Payment Calculator 2026 — Hidden Home Costs</title>
+<meta name="description" content="See the real cost of owning a home in 2026. Includes property tax, insurance, HOA fees, and PMI. Most calculators hide these costs.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,124 +33,49 @@
     max-width: 600px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #fff3e0;
-    color: #e65100;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #fff3e0; color: #e65100; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #2a5298;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #2a5298, #1e3c72);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(42,82,152,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #f7faff;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #e0e9ff;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; transition: border 0.2s; }
+  input:focus { outline: none; border-color: #2a5298; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #2a5298, #1e3c72); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(42,82,152,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #f7faff; border-radius: 14px; display: none; border: 2px solid #e0e9ff; }
   .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
+  .result-row { display: flex; justify-content: space-between; padding: 9px 0; font-size: 15px; color: #1a2b4a; }
   .result-row.extra { color: #e65100; }
-  .result-row.total {
-    border-top: 2px solid #d0e2ff;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 20px;
-    font-weight: bold;
-  }
+  .result-row.total { border-top: 2px solid #d0e2ff; margin-top: 10px; padding-top: 16px; font-size: 20px; font-weight: bold; }
   .result-row.total span:last-child { color: #2a5298; }
-  .warning {
-    background: #fff3e0;
-    border-left: 4px solid #e65100;
-    padding: 14px;
-    border-radius: 6px;
-    margin-top: 16px;
-    font-size: 14px;
-    color: #5d4037;
-    line-height: 1.5;
-  }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #2a5298;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .warning { background: #fff3e0; border-left: 4px solid #e65100; padding: 14px; border-radius: 6px; margin-top: 16px; font-size: 14px; color: #5d4037; line-height: 1.5; }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+  .seo-content strong { color: #1a2b4a; }
+ .faq { background: #f7faff; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #e0e9ff; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #e0e9ff; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #b8c8ee; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #e0e9ff; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #2a5298; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #2a5298; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -167,7 +92,7 @@
   <label for="down">Down payment — USD</label>
   <p class="hint">If less than 20%, expect PMI</p>
   <input type="number" id="down" placeholder="e.g. 60000" value="60000">
- 
+
   <label for="rate">Interest rate — % per year</label>
   <input type="number" id="rate" placeholder="e.g. 6.5" value="6.5" step="0.1">
 
@@ -216,6 +141,49 @@
     <div class="warning" id="warning"></div>
   </div>
 
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>What Are the Hidden Costs of Owning a Home?</h2>
+    <p>When people calculate their mortgage, they usually only look at the "Principal & Interest" (P&I). But P&I is just one piece of the puzzle. Your actual monthly payment will be much higher because of the following hidden costs:</p>
+    
+    <h3>1. Property Taxes</h3>
+    <p>Local governments charge property taxes to fund schools, roads, and public services. The average US property tax rate is about 1.1% of the home's value per year. On a $400,000 home, that's roughly $4,400 per year, or <strong>$367 per month</strong>.</p>
+
+    <h3>2. Homeowners Insurance</h3>
+    <p>Lenders require you to have insurance to protect the property from fire, theft, and natural disasters. The national average is around $1,400 per year, but it can be much higher in states prone to hurricanes (like Florida) or wildfires (like California).</p>
+
+    <h3>3. HOA Fees</h3>
+    <p>If you buy a condo, townhouse, or a home in a planned community, you'll have to pay Homeowners Association (HOA) fees. These can range from $50 to $500+ per month, depending on the amenities (pool, gym, security).</p>
+
+    <h3>4. Private Mortgage Insurance (PMI)</h3>
+    <p>If your down payment is less than 20%, you'll be required to pay PMI. This protects the lender if you default. PMI typically costs 0.5% to 1% of your loan amount per year. On a $340,000 loan, that's an extra <strong>$200 to $280 per month</strong>.</p>
+  </div>
+
+  <div class="related">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="closing-costs.html">Closing Costs Calculator</a> — don't forget the 2-5% extra fees at closing</li>
+      <li><a href="affordability.html">Home Affordability Calculator</a> — how much house fits your budget</li>
+      <li><a href="down-payment.html">Down Payment Calculator</a> — how long to save for a down payment</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Hidden Costs — FAQ</h2>
+    <div class="faq-item">
+      <h3>Can I avoid PMI?</h3>
+      <p>Yes, there are two ways. You can put 20% down, or you can use a "piggyback" loan (like an 80-10-10 loan) where you take out a second mortgage to cover part of the down payment.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are property taxes included in my mortgage payment?</h3>
+      <p>Usually, yes. Most lenders set up an "escrow account". They collect a portion of your property taxes and insurance with your monthly mortgage payment, hold the money, and pay the bills for you when they are due.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do HOA fees ever go up?</h3>
+      <p>Yes. HOA boards can raise fees every year to cover rising maintenance costs or new amenities. It's important to review the HOA's financial history before buying.</p>
+    </div>
+  </div>
+
   <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual rates, terms, taxes, and insurance costs depend on your lender, location, property, and full financial picture. Always confirm your numbers with a licensed mortgage professional before making any decision.</p>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
@@ -247,7 +215,7 @@ function calculate() {
 
   const downPercent = (down / price) * 100;
   let pmiMonthly = 0;
-  let warningText = '';
+ let warningText = '';
 
   if (downPercent < 20) {
     pmiMonthly = (loanAmount * 0.007) / 12;
@@ -276,5 +244,6 @@ function calculate() {
     navigator.serviceWorker.register('/my-calculator/sw.js');
   }
 </script>
+
 </body>
 </html>
