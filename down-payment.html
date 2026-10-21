@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b6fe0'/><text x='50' y='72' font-size='68' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
- <link rel="manifest" href="manifest.json">
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKY6LFBJS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Down Payment Calculator — How Much Should You Save?</title>
-<meta name="description" content="Find out how long it will take to save for a down payment — and how a bigger down payment saves you on PMI and interest.">
+<title>Down Payment Calculator 2026 — How Long to Save for a House?</title>
+<meta name="description" content="Find out how long it will take to save for a down payment in 2026. See how much PMI you avoid by putting 20% down and get a savings plan.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,124 +33,53 @@
     max-width: 620px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #e0f2f4;
-    color: #134e5e;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #e0f2f4; color: #134e5e; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input, select {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background: #fff;
-    transition: border 0.2s;
-  }
-  input:focus, select:focus {
-    outline: none;
-    border-color: #3a8ca0;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #3a8ca0, #134e5e);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(58,140,160,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #f4fbfd;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #d4eef5;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input, select { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; background: #fff; transition: border 0.2s; }
+  input:focus, select:focus { outline: none; border-color: #3a8ca0; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #3a8ca0, #134e5e); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(58,140,160,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #f4fbfd; border-radius: 14px; display: none; border: 2px solid #d4eef5; }
   .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
-  .result-row.total {
-    border-top: 2px solid #d4eef5;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 19px;
-    font-weight: bold;
-  }
+  .result-row { display: flex; justify-content: space-between; padding: 9px 0; font-size: 15px; color: #1a2b4a; }
+  .result-row.total { border-top: 2px solid #d4eef5; margin-top: 10px; padding-top: 16px; font-size: 19px; font-weight: bold; }
   .result-row.total span:last-child { color: #134e5e; }
-  .tip {
-    background: #e0f2f4;
-    border-left: 4px solid #134e5e;
-    padding: 14px;
-    border-radius: 6px;
-    margin-top: 16px;
-    font-size: 14px;
-    color: #134e5e;
-    line-height: 1.6;
-  }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #134e5e;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .tip { background: #e0f2f4; border-left: 4px solid #134e5e; padding: 14px; border-radius: 6px; margin-top: 16px; font-size: 14px; color: #134e5e; line-height: 1.6; }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+ .seo-content strong { color: #1a2b4a; }
+  .state-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .state-table th { background: #e0f2f4; color: #1a2b4a; text-align: left; padding: 10px; border-bottom: 2px solid #d4eef5; }
+  .state-table td { padding: 10px; border-bottom: 1px solid #d4eef5; color: #55617a; }
+  .state-table tr:last-child td { border-bottom: none; }
+
+  .faq { background: #f4fbfd; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #d4eef5; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #d4eef5; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #80deea; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #d4eef5; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #134e5e; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #134e5e; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -197,6 +126,55 @@
     <div class="tip" id="tip"></div>
   </div>
 
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>How Much Down Payment Do You Need?</h2>
+    <p>The down payment is usually the biggest hurdle for first-time homebuyers. While 20% is the gold standard, it's not a strict rule. Here is a breakdown of the most common down payment options:</p>
+    
+    <table class="state-table">
+      <tr><th>Down Payment</th><th>Loan Type</th><th>Pros & Cons</th></tr>
+      <tr><td>3.5%</td><td>FHA Loan</td><td>Lowest entry point, but requires mortgage insurance (MIP) for the life of the loan.</td></tr>
+      <tr><td>5% - 10%</td><td>Conventional Loan</td><td>Good balance. PMI is required until you reach 20% equity, but it can be removed later.</td></tr>
+      <tr><td>20%</td><td>Conventional Loan</td><td>The sweet spot. You avoid PMI entirely, saving you hundreds per month.</td></tr>
+    </table>
+
+    <h3>What is PMI?</h3>
+    <p>Private Mortgage Insurance (PMI) is a fee lenders charge if your down payment is less than 20%. It protects the lender if you default on the loan. PMI usually costs between <strong>0.5% and 1% of your loan amount per year</strong>. For a $350,000 loan, that's an extra $145 to $290 added to your monthly payment.</p>
+
+    <h3>How to Save for a Down Payment Faster</h3>
+    <ul>
+      <li><strong>Set a timeline:</strong> Use the calculator above to see exactly how many months you need to save.</li>
+      <li><strong>Automate your savings:</strong> Set up an automatic transfer from your checking to a high-yield savings account on payday.</li>
+      <li><strong>Cut one big expense:</strong> Instead of trying to save on everything, cut one major expense (like a car payment or a premium subscription) and put that money directly into savings.</li>
+      <li><strong>Look into down payment assistance:</strong> Many states and cities offer grants or low-interest loans for first-time buyers.</li>
+    </ul>
+  </div>
+
+  <div class="related">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="closing-costs.html">Closing Costs Calculator</a> — don't forget the 2-5% extra fees</li>
+      <li><a href="affordability.html">Home Affordability Calculator</a> — how much house fits your budget</li>
+      <li><a href="mortgage-payoff.html">Mortgage Payoff Calculator</a> — how fast can you pay off your home?</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Down Payment — FAQ</h2>
+    <div class="faq-item">
+      <h3>Is 20% down payment required?</h3>
+      <p>No. It's a myth. Many loan programs allow down payments as low as 3% (conventional) or 3.5% (FHA). However, putting 20% down saves you from paying PMI.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use gift money for a down payment?</h3>
+      <p>Yes, most lenders allow you to use gift money from family members. You will just need a "gift letter" signed by the donor stating that the money does not need to be repaid.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I avoid PMI with a low down payment?</h3>
+      <p>You can look into "piggyback" loans (like an 80-10-10 loan), where you take out a second mortgage to cover part of the down payment, avoiding PMI. Or, you can wait until you reach 20% equity and request PMI removal.</p>
+    </div>
+  </div>
+
   <p class="note">This calculator provides an estimate for educational purposes only. It is not financial advice. Closing costs (2–5% of the home price) are not included — budget for them separately.</p>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
@@ -231,8 +209,7 @@ function calculate() {
     const monthsNeeded = Math.ceil(need / monthly);
     const years = Math.floor(monthsNeeded / 12);
     const months = monthsNeeded % 12;
-
-    let timeText = '';
+   let timeText = '';
     if (years > 0) timeText += years + ' year' + (years > 1 ? 's' : '');
     if (months > 0) {
       if (years > 0) timeText += ' and ';
@@ -258,5 +235,6 @@ function calculate() {
     navigator.serviceWorker.register('/my-calculator/sw.js');
   }
 </script>
+
 </body>
 </html>
