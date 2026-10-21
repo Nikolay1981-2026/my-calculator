@@ -12,8 +12,8 @@
   gtag('config', 'G-5PKY6LFBJS');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Affordability Calculator — How Much House Can You Afford?</title>
-<meta name="description" content="Find out how much house you can afford based on your income, debts, and down payment. Uses the 43% DTI rule that lenders actually apply.">
+<title>Home Affordability Calculator 2026 — How Much House Can You Afford?</title>
+<meta name="description" content="Find out how much house you can afford in 2026. Uses the 43% DTI rule that lenders actually apply. See your max loan amount and monthly payment.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -33,123 +33,53 @@
     max-width: 620px;
     width: 100%;
   }
-  h1 {
-    font-size: 26px;
-    color: #1a2b4a;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .subtitle {
-    color: #6b7a99;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: #e0f7fa;
-    color: #006064;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+  h1 { font-size: 26px; color: #1a2b4a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .subtitle { color: #6b7a99; font-size: 15px; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+  .badge { display: inline-block; background: #e0f7fa; color: #006064; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
   .center { text-align: center; }
-  label {
-    display: block;
-    font-size: 14px;
-    color: #1a2b4a;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .hint {
-    font-size: 12px;
-    color: #8a96ab;
-    margin-bottom: 6px;
-    font-weight: normal;
-  }
-  input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 16px;
-    border: 2px solid #e0e6ef;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: border 0.2s;
-  }
-  input:focus {
-    outline: none;
-    border-color: #006064;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #2c5364, #0f2027);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-  }
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(44,83,100,0.4);
-  }
-  .result {
-    margin-top: 28px;
-    padding: 24px;
-    background: #f4fbfd;
-    border-radius: 14px;
-    display: none;
-    border: 2px solid #d4eef5;
-  }
+  label { display: block; font-size: 14px; color: #1a2b4a; margin-bottom: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #8a96ab; margin-bottom: 6px; font-weight: normal; }
+  input { width: 100%; padding: 13px 15px; font-size: 16px; border: 2px solid #e0e6ef; border-radius: 10px; margin-bottom: 20px; transition: border 0.2s; }
+  input:focus { outline: none; border-color: #006064; }
+  button { width: 100%; padding: 16px; font-size: 17px; font-weight: bold; color: #fff; background: linear-gradient(135deg, #2c5364, #0f2027); border: none; border-radius: 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44,83,100,0.4); }
+  .result { margin-top: 28px; padding: 24px; background: #f4fbfd; border-radius: 14px; display: none; border: 2px solid #d4eef5; }
   .result.show { display: block; }
-  .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-    color: #1a2b4a;
-  }
-  .result-row.total {
-    border-top: 2px solid #d4eef5;
-    margin-top: 10px;
-    padding-top: 16px;
-    font-size: 22px;
-    font-weight: bold;
-  }
+  .result-row { display: flex; justify-content: space-between; padding: 9px 0; font-size: 15px; color: #1a2b4a; }
+  .result-row.total { border-top: 2px solid #d4eef5; margin-top: 10px; padding-top: 16px; font-size: 22px; font-weight: bold; }
   .result-row.total span:last-child { color: #006064; }
-  .tip {
-    background: #e0f7fa;
-    border-left: 4px solid #006064;
-    padding: 14px;
-    border-radius: 6px;
-    margin-top: 16px;
-    font-size: 14px;
-    color: #006064;
-    line-height: 1.6;
-  }
-  .note {
-    font-size: 13px;
-    color: #8a96ab;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #006064;
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .tip { background: #e0f7fa; border-left: 4px solid #006064; padding: 14px; border-radius: 6px; margin-top: 16px; font-size: 14px; color: #006064; line-height: 1.6; }
+  .note { font-size: 13px; color: #8a96ab; margin-top: 20px; text-align: center; line-height: 1.6; }
+  
+  /* Новые стили для SEO-контента */
+  .seo-content { margin-top: 40px; border-top: 1px solid #e8edf5; padding-top: 30px; }
+  .seo-content h2 { font-size: 22px; color: #1a2b4a; margin-bottom: 16px; font-weight: 800; }
+  .seo-content h3 { font-size: 18px; color: #1a2b4a; margin-top: 24px; margin-bottom: 10px; font-weight: 700; }
+  .seo-content p { font-size: 15px; color: #55617a; line-height: 1.7; margin-bottom: 14px; }
+  .seo-content ul { margin-left: 20px; margin-bottom: 16px; }
+  .seo-content li { font-size: 15px; color: #55617a; line-height: 1.6; margin-bottom: 8px; }
+  .seo-content strong { color: #1a2b4a; }
+  .state-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .state-table th { background: #e0f7fa; color: #1a2b4a; text-align: left; padding: 10px; border-bottom: 2px solid #b2ebf2; }
+  .state-table td { padding: 10px; border-bottom: 1px solid #b2ebf2; color: #55617a; }
+  .state-table tr:last-child td { border-bottom: none; }
+
+  .faq { background: #f4fbfd; border-radius: 16px; padding: 30px 28px; margin-top: 32px; border: 2px solid #d4eef5; }
+  .faq-title { font-size: 22px; color: #1a2b4a; margin-bottom: 20px; text-align: center; font-weight: 800; }
+  .faq-item { padding: 16px 0; border-bottom: 1px solid #d4eef5; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { font-size: 14px; color: #55617a; line-height: 1.65; margin: 0; }
+  
+  .related { background: #fff; border-radius: 14px; padding: 24px 26px; margin-top: 28px; border: 2px dashed #80deea; }
+  .related h3 { font-size: 16px; color: #1a2b4a; margin-bottom: 14px; font-weight: 800; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { font-size: 14px; color: #55617a; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid #d4eef5; }
+  .related li:last-child { border-bottom: none; padding-bottom: 0; }
+  .related a { color: #006064; font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  
+  .back-link { display: block; text-align: center; margin-top: 24px; font-size: 14px; color: #006064; text-decoration: none; font-weight: 600; }
   .back-link:hover { text-decoration: underline; }
 </style>
 </head>
@@ -199,6 +129,58 @@
     <div class="tip" id="tip"></div>
   </div>
 
+  <!-- НОВЫЙ SEO-БЛОК -->
+  <div class="seo-content">
+    <h2>How Lenders Calculate What You Can Afford</h2>
+    <p>When you apply for a mortgage, lenders don't just look at your income. They look at your <strong>Debt-to-Income ratio (DTI)</strong>. This is the percentage of your gross monthly income that goes toward paying debts.</p>
+    
+    <h3>The 43% DTI Rule</h3>
+    <p>Most lenders follow the Qualified Mortgage (QM) rule, which states that your total monthly debts (including the new mortgage, car loans, and credit cards) should not exceed <strong>43% of your gross monthly income</strong>. If your DTI is higher than 43%, it will be very difficult to get approved
+      for a conventional loan.</p>
+    <p><strong>Example:</strong> If you earn $8,000 a month, 43% is $3,440. If you already pay $500 for a car loan, your max housing payment (mortgage + taxes + insurance) can be up to $2,940.</p>
+
+    <h3>How Much House Can You Afford?</h3>
+    <p>Here is a rough estimate of home prices based on different income levels (assuming a 6.5% interest rate, 20% down payment, and no other debts):</p>
+    <table class="state-table">
+      <tr><th>Annual Income</th><th>Estimated Home Price</th><th>Est. Monthly Payment</th></tr>
+      <tr><td>$50,000</td><td>~$230,000</td><td>~$1,450</td></tr>
+      <tr><td>$85,000</td><td>~$400,000</td><td>~$2,500</td></tr>
+      <tr><td>$120,000</td><td>~$560,000</td><td>~$3,500</td></tr>
+    </table>
+
+    <h3>How to Increase Your Buying Power</h3>
+    <ul>
+      <li><strong>Pay off debts:</strong> Paying off a $300 car loan can increase your mortgage approval by tens of thousands of dollars.</li>
+      <li><strong>Save a bigger down payment:</strong> A larger down payment means a smaller loan, which lowers your monthly payment and improves your DTI.</li>
+      <li><strong>Improve your credit score:</strong> A higher score gets you a lower interest rate, which lowers your monthly payment.</li>
+    </ul>
+  </div>
+
+  <div class="related">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="down-payment.html">Down Payment Calculator</a> — how long to save for a down payment</li>
+      <li><a href="closing-costs.html">Closing Costs Calculator</a> — don't forget the 2-5% extra fees</li>
+      <li><a href="self-employed.html">Self-Employed Mortgage Calculator</a> — how much can freelancers borrow?</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="faq-title">Affordability — FAQ</h2>
+    <div class="faq-item">
+      <h3>What is a good DTI ratio?</h3>
+      <p>A DTI under 36% is considered excellent. A DTI between 36% and 43% is acceptable for most lenders. Anything above 43% is considered risky.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Should I include my utilities in the DTI?</h3>
+      <p>No. Utilities (electricity, water, internet) are not included in your DTI calculation. Only debt obligations (loans, credit cards, child support) are counted.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I have no credit score?</h3>
+      <p>If you have no credit history, some lenders offer "alternative credit" programs. They may look at your rent payment history, utility bills, and phone bills to approve you for an FHA loan.</p>
+    </div>
+  </div>
+
   <p class="note">This calculator provides an estimate for educational purposes only. It is not a loan offer, pre-approval, or financial advice. Actual affordability depends on your credit score, employment history, lender guidelines, and full financial picture. Always talk to a licensed mortgage professional.</p>
 
   <a href="index.html" class="back-link">← Back to all calculators</a>
@@ -232,7 +214,6 @@ function calculate() {
     alert('Your income does not support a mortgage at this time.');
     return;
   }
-
   const monthlyRate = rate / 100 / 12;
   const months = years * 12;
   const maxLoan = availableForLoan * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate;
@@ -250,7 +231,7 @@ function calculate() {
     tipText = '✅ You are in a strong position. You can afford homes in most markets across the US. Just remember — a bigger mortgage means a bigger monthly commitment.';
   } else if (homePrice > 400000) {
     tipText = '💡 You can afford a solid mid-range home in most US markets. Consider keeping some cash reserves for closing costs and emergencies.';
-    } else if (homePrice > 200000) {
+  } else if (homePrice > 200000) {
     tipText = '⚠️ Your budget supports entry-level homes. Focus on saving a bigger down payment — it will lower your monthly payment and help you avoid PMI.';
   } else {
     tipText = '⚠️ Your current numbers limit your options. Consider increasing income, paying down debts, or saving a larger down payment before buying.';
