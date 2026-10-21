@@ -152,6 +152,119 @@
     font-weight: 600;
   }
   .back-link:hover { text-decoration: underline; }
+
+  /* --- Стили SEO-контента --- */
+  .seo-section {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+  }
+  .seo-section h2 {
+    font-size: 20px;
+    color: #1a2b4a;
+    margin-bottom: 15px;
+  }
+  .seo-section h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  .seo-section p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .seo-section ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+  }
+  .seo-section li {
+    margin-bottom: 8px;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e6ef;
+  }
+  th {
+    background-color: #f4fbfd;
+    color: #1a2b4a;
+    font-weight: 600;
+  }
+  .related-box {
+    background: #f9fbfc;
+    border: 2px dashed #a6c6ce;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px 0;
+  }
+  .related-box h3 {
+    font-size: 16px;
+    color: #1a2b4a;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .related-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .related-box li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .related-box a {
+    color: #134e5e;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .related-box a:hover { text-decoration: underline; }
+  .related-box span {
+    color: #6b7a99;
+  }
+  .faq-box {
+    background: #f9fbfc;
+    border: 1px solid #e0e6ef;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+  }
+  .faq-box h3 {
+    font-size: 18px;
+    color: #1a2b4a;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .faq-item {
+    margin-bottom: 15px;
+  }
+  .faq-item strong {
+    display: block;
+    font-size: 14px;
+    color: #1a2b4a;
+    margin-bottom: 5px;
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: #6b7a99;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
 </style>
 </head>
 <body>
@@ -242,11 +355,94 @@
 
   <p class="note">This calculator provides an estimate for educational purposes only. Actual property taxes depend on your local assessment, exemptions, and specific taxing districts. Always check with your county assessor for exact numbers.</p>
 
+  <!-- SEO КОНТЕНТ -->
+  <div class="seo-section">
+    <h2>How Do Property Taxes Work?</h2>
+    <p>Property tax is an annual tax paid to your local government (county, city, or school district) based on the assessed value of your real estate. Unlike federal income tax, property tax rates are set locally, which is why they vary wildly from state to state.</p>
+    <p>Your mortgage lender usually collects a portion of your property tax every month in an <strong>escrow account</strong> and pays the county on your behalf. This is why the "monthly cost" shown above is important — it gets added to your principal and interest payment.</p>
+
+    <h3>Highest and Lowest Property Tax States</h3>
+    <p>Effective property tax rates (tax paid as a percentage of home value) range from under 0.3% to nearly 2%. Below is a quick comparison:</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>Effective Rate</th>
+            <th>Tax on $400,000 Home</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hawaii</strong> (Lowest)</td>
+            <td>0.28%</td>
+            <td>~$1,120 / year</td>
+          </tr>
+          <tr>
+            <td><strong>California</strong></td>
+            <td>0.55%</td>
+            <td>~$2,200 / year</td>
+          </tr>
+          <tr>
+            <td><strong>Florida</strong></td>
+            <td>0.92%</td>
+            <td>~$3,680 / year</td>
+          </tr>
+          <tr>
+            <td><strong>Texas</strong></td>
+            <td>1.70%</td>
+            <td>~$6,800 / year</td>
+          </tr>
+          <tr>
+            <td><strong>New Jersey</strong> (Highest)</td>
+            <td>1.85%</td>
+            <td>~$7,400 / year</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>What Factors Affect Your Property Tax?</h3>
+    <ul>
+      <li><strong>Assessed Value:</strong> Local authorities determine what your home is worth for tax purposes. This isn't always the same as the market price you paid.</li>
+      <li><strong>Exemptions:</strong> Many states offer a "Homestead Exemption" for your primary residence, which lowers the taxable value.</li>
+      <li><strong>Local Millage Rates:</strong> Taxes are often calculated in "mills" (one mill = $1 per $1,000 of assessed value). Voters often approve new millage rates for schools or infrastructure.</li>
+    </ul>
+  </div>
+
+  <!-- ПЕРЕЛИНКОВКА -->
+  <div class="related-box">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="affordability.html">Home Affordability Calculator</a> <span>— see what you can borrow</span></li>
+      <li><a href="hidden-costs.html">Hidden Costs of Buying</a> <span>— don't forget insurance and PMI</span></li>
+      <li><a href="rent-vs-buy.html">Rent vs. Buy Calculator</a> <span>— compare the real cost of owning</span></li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-box">
+    <h3>Property Tax — FAQ</h3>
+    
+    <div class="faq-item">
+      <strong>Are property taxes paid monthly or annually?</strong>
+      <p>You can usually pay annually or in installments directly to your county. However, if you have a mortgage, the lender typically collects 1/12th of the bill each month in escrow and pays it for you.</p>
+    </div>
+    <div class="faq-item">
+      <strong>Can property taxes be deducted from federal income tax?</strong>
+      <p>Yes, if you itemize your deductions, you can deduct state and local property taxes up to the SALT cap ($10,000 for most filers, though this may change with new legislation).</p>
+    </div>
+    <div class="faq-item">
+      <strong>What happens if I disagree with my assessed value?</strong>
+      <p>You have the right to appeal your property tax assessment. Contact your local county assessor's office to file an appeal, often requiring proof (like an independent appraisal) that your home is overvalued.</p>
+    </div>
+  </div>
+
   <a href="index.html" class="back-link">← Back to all calculators</a>
 </div>
 
 <script>
-  function calculate() {
+function calculate() {
   const price = parseFloat(document.getElementById('price').value);
   const stateSelect = document.getElementById('stateSelect');
   const rate = parseFloat(stateSelect.value);
